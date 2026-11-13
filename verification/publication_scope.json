@@ -1,14 +1,17 @@
 {
-  "status": "LOCAL_STAGING_NOT_PUBLISHED",
+  "status": "RELEASE_CONTENTS_VERIFIED_BEFORE_PUBLICATION",
   "method": "own S20/equal B5Conv/frozen q20/confidence-disjoint",
-  "version": "v3.1",
-  "package_bundle_sha256": "c0380ddf51e507b59c9fb763cadd47cd5b116b113693829676ccb604f1d9cdee",
-  "bundle_files_unchanged": 98,
+  "version": "v3.2",
+  "package_bundle_sha256": "fdfb2833c135be69395de5c4ae9c6ec20ae9ddaa759e3a9e25addd5361ca9a22",
+  "bundle_files_unchanged": 115,
   "accepted_public_score": 0.4,
   "submission_ref": 58287816,
   "complete_hybrid_independent_confirmation": false,
   "new_environment_or_cross_hardware_claim": false,
   "organizer_form_submitted": false,
   "independent_audit": "v31_independent_audit.json",
-  "independent_audit_sha256": "223e215170eba2fda1e9daa29f95a9509d76b45ebfbd4b3190bd2ffd43029b3d"
+  "independent_audit_sha256": "223e215170eba2fda1e9daa29f95a9509d76b45ebfbd4b3190bd2ffd43029b3d",
+  "fully_executed_version": "v3.1-verified",
+  "v32_full_gpu_run": false,
+  "guard_only_derivation": true
 }

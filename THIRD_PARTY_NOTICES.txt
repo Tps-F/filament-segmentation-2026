@@ -12,3 +12,13 @@ scikit-learn, joblib and pycocotools remain under their respective upstream
 licenses. Exact installed dependency versions are recorded in requirements.txt.
 This package contains no competition image pixels or annotation data. The user
 must obtain the official competition inputs through their own authorized access.
+
+Version3.2 retains exact upstream Ultralytics8.4.211 LICENSE bytes in
+licenses/ULTRALYTICS_AGPL-3.0.txt, retrieved from the official version tag:
+https://github.com/ultralytics/ultralytics/blob/v8.4.211/LICENSE
+The source URL, exact hash and component scope are recorded in
+licenses/ultralytics_source.json. This attribution covers the upstream
+Ultralytics code/model component; it does not assert a new license for other
+assets or replace any applicable upstream distribution requirements.
+All original detector/semantic archives and the final quality artifact remain
+byte-identical to v3.1. Reference-mode changes affect checks/reporting only.

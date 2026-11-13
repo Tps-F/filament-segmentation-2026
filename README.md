@@ -11,19 +11,21 @@ Use Python 3.12 and a CUDA GPU with native BF16 support. The reference host is a
 ```bash
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python -m unittest test_release
-.venv/bin/python run.py --execute \
+.venv/bin/python -m unittest test_release test_reference_mode
+.venv/bin/python run.py --execute --reference-mode report-only \
   --test-dir /path/to/official/test/test_images \
   --output /path/to/new/output-directory
 ```
 
 The notebook in `notebooks/` provides the same path with configurable locations and an explicit `RUN_FULL` switch. Download the official competition data through your own authorized Kaggle access. The repository contains the trained inference weights and quality model in checksummed binary pieces; the runner restores them locally. Training and annotation files are unnecessary for inference.
 
-Version 3.1 checks every detector output, every semantic member, their equal mean, and the final CSV against the reference hashes. It stops if any differs. Deterministic settings do not establish byte equality across different GPUs or software stacks.
+Version **3.2** keeps the exact trained weights, numerical sources, precision and inference recipe. It adds an explicit `--reference-mode report-only` option: all canonical output hashes are still compared and recorded, while valid inference can finish when another compatible GPU produces different bytes. `--reference-mode strict` stops at a reference mismatch and is the CLI default. Neither mode relaxes input/weight/source integrity, native shapes, finite outputs, source identity, mask support, or zero overlap. Inspect `reference_comparison.json` and `reproduction_receipt.json` to see actual equality; a completed report-only run does not imply the submitted CSV was reproduced.
+
+The exact fully exercised **v3.1** package is retained at the `v3.1-verified` Git tag. The v3.2 derivation has passed 19 CPU contracts; independent checks also accepted all 180 actual detector files and 540 saved probability arrays under its new validity guards. Its guard/report changes do not constitute another full GPU run. Deterministic settings do not establish byte equality across different GPUs or software stacks.
 
 ## Verified result
 
-A fresh local Git clone ran all three shipped notebook code cells as plain Python in an existing separate environment on 13 November. It regenerated all 180 images and the accepted CSV exactly in **2,486.81 seconds** of inference and export. This was not a new-machine installation or an actual Jupyter-kernel test.
+A fresh local Git clone of **v3.1** ran all three shipped notebook code cells as plain Python in an existing separate environment on 13 November. It regenerated all 180 images and the accepted CSV exactly in **2,486.81 seconds** of inference and export. This was not a new-machine installation or an actual Jupyter-kernel test.
 
 - 1,219 instances, 179 nonempty images, zero overlapping output pixels.
 - CSV SHA-256: `9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c`.

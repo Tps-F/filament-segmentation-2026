@@ -1,15 +1,69 @@
-Own S20 + deterministic B5/Conv + fixed q20 + disjoint final export (v3.1)
+Own S20 + deterministic B5/Conv + fixed q20 + disjoint export (v3.2)
 
-STATUS: Actual corrected artifacts are BOUND. Canonical CSV 9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c. Full180 GPU reproduction remains PENDING. run.py defaults to plan-only and refuses execution until actual binding. Existing model archives and inference operations are byte-identical to v3; only the detector post-constructor assertion/reporting is corrected. No model export, training or quality refit occurred.
+STATUS: Derived runner PREPARED, no v3.2 GPU execution or cross-hardware equality
+claim. Actual weights and reference candidate remain bound to the unchanged
+v3.1 sources. Canonical submitted CSV SHA256:
+9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c.
+The v3.1 package, its actual runs, failures and verification proofs are preserved
+separately and unchanged. Historical copied documents describe those versions.
 
-The unchanged boundary and quality stages select instances at q20. Only afterward, stable descending ORIGINAL detector confidence assigns pixels. Already retained occupancy is subtracted; a remainder under5pixels is dropped and claims no pixels. Retained clipped parts remain one source object. No added morphology, NMS, quality reranking or mask splitting occurs. Final native area sum must equal union exactly.
+Choose a reference mode explicitly for full inference:
 
-Parent v2 candidate526b14a2... was rejected by Kaggle for overlapping masks. It is historical invalid-output evidence, retained unchanged outside this package. Copied v2 source/weight/provenance documents are historical; only the new disjoint binding proof establishes the canonical v3 CSV. Prior overlapping validation scores do not establish post-clipping quality.
+  python run.py --execute --reference-mode strict \
+    --test-dir /official/test/test_images --output /new/strict-output
 
-Install requirements.txt into your chosen compatible environment. The shipped notebook has1Markdown+3code cells. Set its3paths and explicitly set RUN_FULL=True to execute; no automatic execution. CLI: python run.py --execute --test-dir /official/test/test_images --output /new/output . CPU contracts: python test_release.py . The original author-binding utility build_local.py is retained as historical provenance and is not needed for this derived bound release; docs/build_v31.py records the exact guard-only amendment.
+  python run.py --execute --reference-mode report-only \
+    --test-dir /official/test/test_images --output /new/inference-output
 
-Hardware: reference NVIDIA GB10, PyTorch2.14.1+cu130 and native CUDA BF16. Semantic workers require capability>=8 and native BF16, reject T4/emulation/precision fallback. The detector starts with original fresh-process FP32 defaults and unset CUBLAS. The unchanged native Ultralytics constructor then sets CUBLAS_WORKSPACE_CONFIG=:4096:8; cuDNN benchmark/deterministic and Torch deterministic flags remainFalse; each semantic worker independently sets strict deterministic backend settings. Parent remains CPU-only. Three fresh processes,10800-second absolute budget and process-group cleanup preserve failures.
+The CLI defaults to strict and does not execute without --execute. Strict mode
+is our exact reference-environment verification: any canonical detector,
+semantic-member, equal-mean or final CSV hash mismatch stops the run. Report-only
+is useful on another compatible native-BF16 GPU: these same comparisons are
+recorded but do not abort inference. A successful report-only run does NOT certify
+matching the submitted CSV on another GPU. Inspect reference_comparison.json and
+reproduction_receipt.json: exact_csv_reproduction and all_reference_hashes_exact
+are actual comparisons, never assumed. Output instance counts can differ.
 
-All180 original detector raw, semantic member and equal-probability hashes plus final CSV must reproduce exactly in any actual run; unsupported numerical realizations stop with evidence. One-image probe evidence does not establish full180 or cross-hardware parity. No fresh-machine/Jupyter/new-install claim is made by preparation. The reproduction path does not read annotation labels, train, fit, download weights or upload. No data images, annotation labels, credentials or canonical CSV prediction rows are included.
+Both modes perform exactly the same model calls, arithmetic, preprocessing,
+precision, TTA, geometry, feature extraction, frozen quality q20, and final
+ownership. Neither mode relaxes source/weight/input hashes, actual-output hash
+integrity, native shapes/finiteness, native CUDA BF16 and backend settings,
+original source identity/confidence/R12 support, CSV round trips, or zero overlap.
+There is no weight/quality refit, threshold search, precision fallback, or silent
+change of backend. Unsupported deterministic operations fail in both modes.
 
-The immutable v3 full run reproduced all180 detector raw hashes, then failed an incorrect post-constructor environment assertion before semantic workers began. This v3.1 corrects that assertion/reporting only. It does not set or reset CUBLAS after the constructor, change inference, or reuse a failed-run cache. Full180 v3.1 reproduction is still PENDING.
+The unchanged boundary and quality stages select instances at q20. Afterward,
+stable descending ORIGINAL detector confidence assigns pixels. Retained
+occupancy is subtracted; a remainder under5pixels is dropped and claims no pixels.
+Retained clipped parts remain one object. No new morphology, NMS, quality ordering
+or splitting occurs. Final native area sum equals union exactly.
+
+Install requirements.txt in a compatible environment; its existing PyTorch
+cu130 extra-index URL is unchanged. The notebook has1Markdown+3code cells: set
+its3paths and REFERENCE_MODE, then explicitly set RUN_FULL=True. It recommends
+report-only for ordinary inference; set strict for canonical verification.
+CPU contracts: python -m unittest test_release test_reference_mode .
+Original author binding tools under build_local.py/docs are historical records,
+not necessary runtime steps; docs/build_v32.py records this exact derivation.
+
+Reference GPU: NVIDIA GB10. Native CUDA BF16 is required (capability>=8 and no
+emulation); T4/FP16 fallback is unsupported. Detector workers start in a fresh
+process with unset CUBLAS and FP32 defaults. The native Ultralytics constructor
+sets CUBLAS_WORKSPACE_CONFIG=:4096:8; its deterministic flags remain false.
+Each separate semantic worker sets its strict deterministic backend before Torch
+import. The CPU parent never owns CUDA. All model workers are fresh processes,
+with the original10800-second total budget, process-group cleanup, no automatic
+retry, and an additional caller alarm mask through child publication/cleanup.
+
+No images, labels, credentials, reference probability arrays, or canonical CSV
+prediction rows are distributed here. Obtain official competition inputs using
+your own authorized access. The runner reads no labels, downloads no weights,
+trains/fits nothing, and uploads nothing. Cross-hardware numerical/metric parity,
+a new installation, and notebook-kernel execution are not established by this
+preparation. Exact source/archive copies and synthetic CPU contracts establish
+only the stated guard/computation invariants.
+
+See THIRD_PARTY_NOTICES.txt. The exact official Ultralytics8.4.211 AGPL-3.0 text
+is retained under licenses/ with version/source/hash attribution for its code
+and model component. Other components retain their upstream terms; no blanket
+license assertion about all assets is made.

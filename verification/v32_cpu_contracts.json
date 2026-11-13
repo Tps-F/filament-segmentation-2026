@@ -1,0 +1,44 @@
+{
+  "status": "PREPARATION_CPU_CONTRACTS_PASSED_NOT_GPU_EXECUTED_OR_PUBLISHED",
+  "at": "2026-11-13T00:34:12.288850+00:00",
+  "bundle_sha256": "fdfb2833c135be69395de5c4ae9c6ec20ae9ddaa759e3a9e25addd5361ca9a22",
+  "parent_bundle_sha256": "c0380ddf51e507b59c9fb763cadd47cd5b116b113693829676ccb604f1d9cdee",
+  "verified_bundle_files": 115,
+  "verified_immutable_parent_files": 98,
+  "exact_parent_copies": 91,
+  "files": {
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/run.py": "e798003b605b89cd777ff4894dd8062f998cb6764b9077b98d2241964688a935",
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/worker.py": "4278692b27cbf5da3d4ea3279a08421bd76f8a75f5ba59306cd743cab7455a2e",
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/reference_policy.py": "8a630fcecfdada21fca66da4082518ddf3c56a92bee871cb481acbe1f3f351c9",
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/test_reference_mode.py": "37d588ddbf4f5359f372a72b5f1955af1a37d17c4ced07876c5b9be4b8f400e1",
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/test_release.py": "a9a3fed6aef00f32e6ad237bc6ebc6b4f40ea3ad7eafcab1ea172df4868be84b",
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/README.txt": "c2c7c9ac27cf40e2e704ed7ddc617327864b0591b5a0b1164863094404ad99da",
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/docs/build_v32.py": "771ec03a741dead494aab3a0844c6151d763dfc6e688443757875d12e449cf58",
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/docs/v32_exact_copy_provenance.json": "0a167ff9b904e4f4b940d387567adf46a80b2dfb3dcca3c384d094f4b6065f1f",
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/licenses/ULTRALYTICS_AGPL-3.0.txt": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+    "outputs/release_preview/own_yolo_s_full_equal_quality_disjoint_v32/licenses/ultralytics_source.json": "b7f9f4464f078000eb119338230a862746160476f6fdf0d0c3066d3211b50ac5",
+    "outputs/diagnostics/own_s_full_disjoint_v32_reference_mode/prepared.json": "599430e7221125646c0069f22b25c137a764e18d9d361a4da06bef7df55df86a",
+    "outputs/diagnostics/own_s_full_disjoint_v32_reference_mode/cpu_contracts.log": "9fb01f34abd21652016bd001ac6a85b57e4d895a169a0c28d47674d44ebc6248"
+  },
+  "cpu_contracts": {
+    "passed": 19,
+    "seconds": 22.569,
+    "new_reference_mode_contracts": 7,
+    "inherited_release_contracts": 12,
+    "gpu_execution": false
+  },
+  "claims": [
+    "Default strict mode stops canonical output mismatches; report-only is explicit and records actual per-image/member/equal/CSV equality.",
+    "All original numeric src files, trained archives, quality, precision/backend policy and reference input inventories remain exact parent copies.",
+    "Only new validator guards, reference reporting and controller alarm masking were added to execution; AST CPU contracts verify unchanged arithmetic/model calls.",
+    "Exact Ultralytics8.4.211 AGPL-3.0 license text retained with scoped source/version attribution.",
+    "Parent v31 package and previous running/failed/success evidence remain unchanged."
+  ],
+  "limitations": [
+    "No v3.2 GPU run or independent cross-hardware output parity established.",
+    "CPU contracts prove guard/computation invariants; they do not establish identical submitted CSV on another GPU.",
+    "Actual v31 native-artifact compatibility review by pixel_refinement pending separately."
+  ],
+  "gpu_launch_authorized": false,
+  "published": false
+}

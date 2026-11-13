@@ -8,6 +8,7 @@ import sys
 import time
 
 from run import ROOT, BACKEND, child_environment, require, read, digest, verify_bundle, detector_raw
+from reference_policy import validate_mode, check_reference, summarize, validate_probability, validate_raw_rows
 
 
 def configure_environment(role):
@@ -64,6 +65,7 @@ def runtime(torch):
 def worker(role,inputs_path):
     configure_environment(role)
     recipe=verify_bundle(require_bound=True);inputs=read(inputs_path)
+    reference_mode=validate_mode(inputs['reference_mode']);reference_checks=[]
     require(inputs['bundle_sha256']==digest(ROOT/'bundle_preparation.json') and inputs['recipe_sha256']==digest(ROOT/'recipe.json'),'Parent bundle identity changed')
     import cv2
     import numpy as np
@@ -85,8 +87,9 @@ def worker(role,inputs_path):
         raw=output/'raw';require(not raw.exists(),'No raw-cache reuse');raw.mkdir();hashes={}
         for index,row in enumerate(inventory,1):
             image=test_dir/row['file_name'];require(digest(image)==row['jpeg_sha256'],'Official JPEG changed')
-            path=raw/(row['image_id']+'.json');atomic_json(path,detector_raw(model,image));hashes[row['image_id']]=digest(path)
-            require(hashes[row['image_id']]==reference['native_raw_sha256'][row['image_id']], 'Native detector realization differs; stop and preserve evidence')
+            path=raw/(row['image_id']+'.json');detections=detector_raw(model,image);validate_raw_rows(detections)
+            atomic_json(path,detections);hashes[row['image_id']]=digest(path)
+            check_reference(reference_mode,hashes[row['image_id']],reference['native_raw_sha256'][row['image_id']],role+'/'+row['image_id'],reference_checks)
             print(json.dumps({'stage':role,'images':index,'total':180}),flush=True)
         policy={'CUBLAS_WORKSPACE_CONFIG':os.environ.get('CUBLAS_WORKSPACE_CONFIG'),'cudnn_benchmark':torch.backends.cudnn.benchmark,
             'cudnn_deterministic':torch.backends.cudnn.deterministic,'deterministic_algorithms':torch.are_deterministic_algorithms_enabled()}
@@ -94,7 +97,8 @@ def worker(role,inputs_path):
         receipt={'role':role,'runtime':runtime(torch),'backend_policy':policy,'raw_sha256':hashes,
             'backend_entry_policy':{'CUBLAS_WORKSPACE_CONFIG':None,'cudnn_benchmark':False,'cudnn_deterministic':False,'deterministic_algorithms':False},
             'native_constructor_transition':'Ultralytics Model.__init__ sets CUBLAS_WORKSPACE_CONFIG=:4096:8; no backend setter added by this worker',
-            'all180_reference_raw_hashes_exact':True,'seconds':time.monotonic()-started}
+            'all180_reference_raw_hashes_exact':all(r['exact'] for r in reference_checks),
+            'reference_comparison':summarize(reference_mode,reference_checks),'seconds':time.monotonic()-started}
     else:
         from src.model import load_checkpoint
         from src.inference import predict_image,atomic_save_probabilities
@@ -108,12 +112,14 @@ def worker(role,inputs_path):
         for index,row in enumerate(inventory,1):
             path=output/'images'/(row['image_id']+'.npy');require(digest(path)==row['native_npy_sha256'],'Native NPY changed')
             probability=predict_image(model,np.load(path,allow_pickle=False),tile_size=768,stride=512,batch_size=4,tta=4,device='cuda',amp=True,scale=1.)
+            validate_probability(probability,'float32')
             destination=directory/(row['image_id']+'.npz');atomic_save_probabilities(destination,probability);hashes[row['image_id']]=digest(destination)
-            require(hashes[row['image_id']]==reference['semantic_probability_sha256'][role][row['image_id']], 'Deterministic semantic realization differs; stop and preserve evidence')
+            check_reference(reference_mode,hashes[row['image_id']],reference['semantic_probability_sha256'][role][row['image_id']],role+'/'+row['image_id'],reference_checks)
             print(json.dumps({'stage':role,'images':index,'total':180}),flush=True)
         require(backend(torch,cv2,model)==BACKEND,'Semantic backend changed during inference')
         receipt={'role':role,'runtime':runtime(torch),'backend_policy':BACKEND,'probability_sha256':hashes,
-            'all180_reference_probability_hashes_exact':True,'seconds':time.monotonic()-started}
+            'all180_reference_probability_hashes_exact':all(r['exact'] for r in reference_checks),
+            'reference_comparison':summarize(reference_mode,reference_checks),'seconds':time.monotonic()-started}
     atomic_json(output/(role+'_receipt.json'),receipt)
 
 

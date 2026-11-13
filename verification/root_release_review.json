@@ -1,0 +1,21 @@
+{
+  "reviewer": "root",
+  "recorded_utc": "2026-11-13T00:42:24.818158+00:00",
+  "status": "RELEASE_CONTENTS_VERIFIED_BEFORE_PUBLICATION",
+  "scope": "v3.2 guard/report-only derivative; exact v3.1 full GPU proof retained in tag and evidence, no new v3.2 GPU/full-reproduction claim",
+  "bundle_sha256": "fdfb2833c135be69395de5c4ae9c6ec20ae9ddaa759e3a9e25addd5361ca9a22",
+  "all115_staged_bundle_files_exact": true,
+  "peer_sha256": "1bb028e3a5f6ebc275a452224dbf40f7fe8161b584ff751d343ea6cba8c9e845",
+  "cpu_tests_passed": 19,
+  "actual_compatibility": {
+    "raw_files": 180,
+    "raw_detections": 3515,
+    "FP16_probability_arrays": 540,
+    "saved_first_image_FP32_probe_arrays": 2
+  },
+  "source_review": "Root read full run.py/worker.py diff, reference_policy.py, CPU tests, notebook/README; inference functions, source/weight/input archives and numeric recipe unchanged. Hard finite/native/support/ownership guards retained; report-only only permits canonical output hash mismatches.",
+  "staged_plan_only_CLI_exit": 0,
+  "no_secret_pattern_matches": true,
+  "planned_repository": "Tps-F/filament-segmentation-2026",
+  "public_push_performed": false
+}

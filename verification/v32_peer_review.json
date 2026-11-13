@@ -1,0 +1,28 @@
+{
+  "status": "read_only_v32_delta_and_actual_validator_compatibility_review_pass",
+  "reviewer": "pixel_refinement",
+  "bundle_sha256": "fdfb2833c135be69395de5c4ae9c6ec20ae9ddaa759e3a9e25addd5361ca9a22",
+  "run_sha256": "e798003b605b89cd777ff4894dd8062f998cb6764b9077b98d2241964688a935",
+  "worker_sha256": "4278692b27cbf5da3d4ea3279a08421bd76f8a75f5ba59306cd743cab7455a2e",
+  "reference_policy_sha256": "8a630fcecfdada21fca66da4082518ddf3c56a92bee871cb481acbe1f3f351c9",
+  "actual_validator_receipt_sha256": "11ce383e63c5901b2980b8464eb9204da309f1d85f9f6d53a030ed5bdd22ea0d",
+  "actual_validator_log_sha256": "244330ba6267a2901f580654a7787c9b2af68ac5bb3f7c042b897e82def5a290",
+  "immutable_v31_bundle_sha256": "c0380ddf51e507b59c9fb763cadd47cd5b116b113693829676ccb604f1d9cdee",
+  "reviewed_existing_CPU_contracts": 19,
+  "CPU_contract_log_sha256": "9fb01f34abd21652016bd001ac6a85b57e4d895a169a0c28d47674d44ebc6248",
+  "findings": [
+    "CLI strict remains default; report-only requires explicit selection and changes only whether canonical output hash differences abort. All differences are recorded with actual/reference hashes.",
+    "Full run/worker diff changes validity guards, reference comparisons/reporting and local ALRM cleanup masking; model calls, precision, tile/TTA math, frozen numeric helpers/archives/quality and final confidence ownership remain unchanged.",
+    "Actual worker raw/member hashes are still checked when the CPU parent consumes files; source/weight/input hashes, native shapes/finiteness, source IDs/confidence/R12, q20 and zero-overlap remain mandatory in both modes.",
+    "Final receipt distinguishes exact_csv_reproduction from all_reference_hashes_exact; report-only completion does not claim submitted-CSV or cross-hardware parity.",
+    "README/notebook truthfully identify v3.2 as prepared rather than GPU-executed. Existing v31 full180 proof belongs to that version and remains immutable.",
+    "All115 new bundle files/98 parent files and91 exact copies rehashed; new validators accepted180 rawfiles/3515detections and540 existing FP16 member/equal arrays. Two existing first-image FP32 arrays also pass and round exactly to V31 outputs."
+  ],
+  "limitations": [
+    "No V3.2 GPU/full notebook run or cross-hardware output parity established.",
+    "Full V31 pre-rounding FP32 arrays were not retained; FP32 validator compatibility is measured on two saved probe arrays, not all180 images."
+  ],
+  "no_blocking_issue_found": true,
+  "source_or_package_mutated": false,
+  "new_model_inference_quality_prediction_feature_recreation_fit_GPU_publication": false
+}

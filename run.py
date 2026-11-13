@@ -1,4 +1,4 @@
-"""Portable own S20/deterministic-semantic/q20 disjoint-v3 reproduction.
+"""Portable own S20/deterministic-semantic/q20 disjoint-v3.2 inference.
 
 No annotation manifest, downloads, training, model fitting or upload calls.
 The author must bind actual final artifacts before explicit GPU execution.
@@ -13,6 +13,7 @@ import time
 import signal
 import subprocess
 import sys
+from reference_policy import POLICY, MODES, validate_mode, check_reference, summarize, validate_probability, validate_raw_rows
 
 os.environ.setdefault('HF_HUB_OFFLINE', '1')
 os.environ.setdefault('TRANSFORMERS_OFFLINE', '1')
@@ -51,6 +52,7 @@ def verify_bundle(require_bound=False):
         require(not path.is_symlink() and path.is_file() and path.stat().st_size == row['bytes']
                 and digest(path) == row['sha256'], 'Bundle file changed: '+relative)
     recipe = read(ROOT/'recipe.json')
+    require(recipe['reference_policy'] == POLICY, 'Reference policy changed')
     require(recipe['quality']['sha256'] == QUALITY_SHA and recipe['quality']['threshold'] == .20,
             'Frozen final quality recipe changed')
     require(recipe['semantic_backend_policy'] == BACKEND and recipe['process_policy']['fresh_worker_per_model']
@@ -153,6 +155,8 @@ def detector_raw(model, image_path):
     if result.masks is not None:
         for mask, score, box in zip(result.masks.data.cpu().numpy(), result.boxes.conf.cpu().numpy(), result.boxes.xyxy.cpu().numpy()):
             require(mask.shape == (2048, 2048), 'Retina mask is not native')
+            require(np.isfinite(mask).all() and np.isfinite(score) and 0 <= score <= 1
+                    and box.shape == (4,) and np.isfinite(box).all(), 'Invalid detector tensor/confidence/box')
             binary = np.asfortranarray(mask > .5, dtype=np.uint8)
             if not binary.any():
                 continue
@@ -211,15 +215,17 @@ def run_worker(role, argv, output, environment, deadline):
     (output/(role+'_exited.json')).write_text(json.dumps({'process_exited':True,'pid':process.pid},indent=2)+'\n')
 
 
-def execute(test_dir, output):
+def execute(test_dir, output, reference_mode='strict'):
+    validate_mode(reference_mode)
     deadline=time.monotonic()+10800
     def expired(*_):raise TimeoutError('Absolute10800-second release budget exceeded')
     previous=signal.signal(signal.SIGALRM,expired);signal.alarm(10800)
-    try:return execute_impl(test_dir,output,deadline)
+    try:return execute_impl(test_dir,output,deadline,reference_mode)
     finally:signal.alarm(0);signal.signal(signal.SIGALRM,previous)
 
 
-def execute_impl(test_dir, output,deadline):
+def execute_impl(test_dir, output,deadline,reference_mode='strict'):
+    validate_mode(reference_mode)
     recipe=verify_bundle(require_bound=True)
     require(not output.exists(),'Use a new output directory; no prediction reuse/retry')
     inherited=dict(os.environ)
@@ -255,30 +261,48 @@ def execute_impl(test_dir, output,deadline):
         path=output/'images'/(row['image_id']+'.npy');np.save(path,gray,allow_pickle=False)
         require(digest(path)==row['native_npy_sha256'],'Native feature input bytes changed')
     atomic_json(output/'execution_inputs.json',{'bundle_sha256':digest(ROOT/'bundle_preparation.json'),
-        'recipe_sha256':digest(ROOT/'recipe.json'),'test_dir':str(test_dir),'output':str(output),'restored':restored})
+        'recipe_sha256':digest(ROOT/'recipe.json'),'test_dir':str(test_dir),'output':str(output),'restored':restored,
+        'reference_mode':reference_mode})
     # No torch state or model is shared: three exec-created interpreter processes.
     for role in ('detector','unet_b5_full','unet_convnext_tiny_full'):
         environment=child_environment(role,inherited)
         argv=[sys.executable,'-u',str(ROOT/'worker.py'),'--role',role,'--inputs',str(output/'execution_inputs.json')]
-        run_worker(role,argv,output,environment,deadline)
+        # Defer controller ALRM across child publication and cleanup; worker wait uses the absolute deadline.
+        old_mask=signal.pthread_sigmask(signal.SIG_BLOCK,{signal.SIGALRM})
+        try:run_worker(role,argv,output,environment,deadline)
+        finally:signal.pthread_sigmask(signal.SIG_SETMASK,old_mask)
     require(not torch.cuda.is_initialized(),'Worker execution initialized parent CUDA')
-    members=[]
+    members=[];reference_reports={};equal_checks=[]
     for member in recipe['semantic_members']:
         receipt=read(output/(member['name']+'_receipt.json'))
-        require(receipt['backend_policy']==BACKEND and receipt['all180_reference_probability_hashes_exact'], 'Semantic worker receipt differs')
+        require(receipt['backend_policy']==BACKEND and receipt['reference_comparison']['mode']==reference_mode, 'Semantic worker receipt differs')
+        require(set(receipt['probability_sha256'])=={r['image_id'] for r in inventory}, 'Incomplete actual member hashes')
+        if reference_mode=='strict':require(receipt['all180_reference_probability_hashes_exact'], 'Strict semantic equality failed')
+        reference_reports[member['name']]=receipt['reference_comparison']
         members.append({'prob_dir':str(output/member['name']),'probability_sha256':receipt['probability_sha256'],'weight':.5})
-    require(read(output/'detector_receipt.json')['all180_reference_raw_hashes_exact'],'Detector raw reproduction differs')
+    detector_receipt=read(output/'detector_receipt.json')
+    require(detector_receipt['reference_comparison']['mode']==reference_mode
+            and set(detector_receipt['raw_sha256'])=={r['image_id'] for r in inventory}, 'Detector receipt/inventory differs')
+    if reference_mode=='strict':require(detector_receipt['all180_reference_raw_hashes_exact'],'Strict detector equality failed')
+    reference_reports['detector']=detector_receipt['reference_comparison']
     equal_dir=output/'equal';equal_dir.mkdir();entries=[]
     with threadpool_limits(limits=4):
         for row in inventory:
             require(time.monotonic()<deadline-10,'Release CPU stage exceeded wall budget')
             stem=row['image_id'];arrays=[]
             for member in members:
-                with np.load(Path(member['prob_dir'])/(stem+'.npz'),allow_pickle=False) as z:arrays.append(z['probability'])
+                actual_path=Path(member['prob_dir'])/(stem+'.npz')
+                require(digest(actual_path)==member['probability_sha256'][stem], 'Actual member bytes changed after worker')
+                with np.load(actual_path,allow_pickle=False) as z:array=z['probability']
+                validate_probability(array,'float16');arrays.append(array)
             path=equal_dir/(stem+'.npz');atomic_save_probabilities(path,equal_probability(*arrays))
-            require(digest(path)==reference['equal_probability_sha256'][stem],'Rounded equal probability differs from canonical candidate')
+            check_reference(reference_mode,digest(path),reference['equal_probability_sha256'][stem],'equal/'+stem,equal_checks)
+            raw_path=output/'raw'/(stem+'.json')
+            require(digest(raw_path)==detector_receipt['raw_sha256'][stem], 'Actual raw bytes changed after worker')
+            validate_raw_rows(read(raw_path))
             entry=generic_geometry_features((stem,output/'raw'/(stem+'.json'),path,output/'images'/(stem+'.npy'),digest(path),members))
-            require(entry['features'].shape==(len(entry['rles']),27) and np.array_equal(entry['features'][:,-1],entry['confidence']),'Feature/confidence mismatch')
+            require(entry['features'].shape==(len(entry['rles']),27) and np.isfinite(entry['features']).all()
+                    and np.array_equal(entry['features'][:,-1],entry['confidence']),'Feature/confidence mismatch')
             entries.append(entry)
         atomic_write(output/'geometry_features.joblib',lambda f:joblib.dump(entries,f))
         atomic_json(output/'geometry_sealed.json',{'sha256':digest(output/'geometry_features.joblib'),'annotations_used':False})
@@ -299,27 +323,37 @@ def execute_impl(test_dir, output,deadline):
     atomic_json(output/'native_audit.json',audits)
     atomic_json(output/'source_ids.json',{stem:audit['source_indices'] for stem,audit in audits.items()})
     require(all(a['pixel_disjoint'] and a['excess_overlap_pixels']==0 for a in audits.values()), 'Final zero-overlap audit failed')
-    receipt={'status':'reproduction_finished','csv_sha256':digest(csv),'expected_csv_sha256':recipe['expected_candidate_sha256'],
+    reference_reports['equal']=summarize(reference_mode,equal_checks)
+    csv_checks=[]
+    # Record final equality before enforcing strict mode, preserving the valid generated CSV and audit.
+    check_reference('report-only',digest(csv),recipe['expected_candidate_sha256'],'candidate.csv',csv_checks)
+    reference_reports['csv']=summarize(reference_mode,csv_checks)
+    reference_summary={'mode':reference_mode,'stages':reference_reports,
+        'all_reference_hashes_exact':all(r['all_reference_hashes_exact'] for r in reference_reports.values())}
+    atomic_json(output/'reference_comparison.json',reference_summary)
+    receipt={'status':'inference_finished','reference_mode':reference_mode,'reference_comparison_sha256':digest(output/'reference_comparison.json'),
+        'all_reference_hashes_exact':reference_summary['all_reference_hashes_exact'],'csv_sha256':digest(csv),'expected_csv_sha256':recipe['expected_candidate_sha256'],
         'exact_csv_reproduction':digest(csv)==recipe['expected_candidate_sha256'],'export':export,'images':180,
         'separate_fresh_processes':True,'parent_cuda_initialized':torch.cuda.is_initialized(),'source_ID_R12_RLE_selection_verified':True,
         'final_export':DISJOINT_POLICY,'all180_final_masks_pixel_disjoint':True,
         'seconds':time.monotonic()-started,'quality_fitted':False,'submitted':False,'trained':False,
-        'scope':'This run only. Prior one-image deterministic probe did not establish full180/crossGPU parity; exact guards decide this actual run.'}
+        'scope':'This actual run only. Report-only permits reference byte differences, never invalid output or changed recipe. Completion does not certify submitted-CSV equality on another GPU; inspect equality fields.'}
     atomic_json(output/'reproduction_receipt.json',receipt)
-    require(receipt['exact_csv_reproduction'],'CSV differs; preserve evidence and do not claim exact reproduction')
+    if reference_mode=='strict':require(receipt['all_reference_hashes_exact'],'Strict reference equality failed; preserve evidence')
     print(json.dumps(receipt,indent=2),flush=True)
 
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--test-dir',type=Path);parser.add_argument('--output',type=Path,default=ROOT/'generated')
+    parser.add_argument('--reference-mode',choices=MODES,default='strict',help='strict stops on canonical GB10 byte differences; report-only records them without changing computation')
     parser.add_argument('--execute',action='store_true');args=parser.parse_args()
     def interrupted(signum,_):raise RuntimeError(f'Interrupted by signal{signum}')
     previous=signal.signal(signal.SIGTERM,interrupted)
     try:
         if args.execute:
-            require(args.test_dir is not None,'Explicit --test-dir required');execute(args.test_dir.resolve(),args.output.resolve())
-        else:print(json.dumps({'status':'plan_only','recipe':verify_bundle(),'gpu_started':False},indent=2))
+            require(args.test_dir is not None,'Explicit --test-dir required');execute(args.test_dir.resolve(),args.output.resolve(),args.reference_mode)
+        else:print(json.dumps({'status':'plan_only','reference_mode':args.reference_mode,'recipe':verify_bundle(),'gpu_started':False},indent=2))
     finally:signal.signal(signal.SIGTERM,previous)
 
 

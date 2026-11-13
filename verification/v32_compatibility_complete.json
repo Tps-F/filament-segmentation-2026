@@ -1,0 +1,33 @@
+{
+  "status": "v32_new_validators_compatible_with_actual_v31_native_artifacts",
+  "source_sha256": "a06ea1c29b8c2938e37d4929b30708c1866b4525e39a42b4d72a8dfdb70cdf6c",
+  "bundle_sha256": "fdfb2833c135be69395de5c4ae9c6ec20ae9ddaa759e3a9e25addd5361ca9a22",
+  "parent_v31_bundle_sha256": "c0380ddf51e507b59c9fb763cadd47cd5b116b113693829676ccb604f1d9cdee",
+  "reference_policy_sha256": "8a630fcecfdada21fca66da4082518ddf3c56a92bee871cb481acbe1f3f351c9",
+  "v31_completed_independent_audit_sha256": "223e215170eba2fda1e9daa29f95a9509d76b45ebfbd4b3190bd2ffd43029b3d",
+  "package_files_rehashed": 115,
+  "immutable_parent_files_rehashed": 98,
+  "exact_parent_copies": 91,
+  "images": 180,
+  "actual_raw_rows": 3515,
+  "actual_FP16_member_and_equal_arrays": 540,
+  "additional_existing_FP32_probe_arrays": [
+    {
+      "path": "outputs/diagnostics/own_pair_numerical_probe/B/unet_b5_full_float32.npy",
+      "sha256": "2bf331ede16a6d777bfc878283b1c4542d60ccfeedb982a78ce4d0f48489213f",
+      "native_first_image": "20110120105534Ch",
+      "rounding_matches_actual_v31": true
+    },
+    {
+      "path": "outputs/diagnostics/own_pair_numerical_probe/B/unet_convnext_tiny_full_float32.npy",
+      "sha256": "f4289ec43a5f7646d7657cbf10e7990110d0c7f7dd592f0d092ecf3a455044ca",
+      "native_first_image": "20110120105534Ch",
+      "rounding_matches_actual_v31": true
+    }
+  ],
+  "artifact_hashes_sha256": "4992942dd03518fb65c3cc709ee79cf7e10938a8088f4fa6ee1b0a7d4ffde9e5",
+  "per_image_sha256": "69ebda7ce02ccae73f5731aec1d21a97336abab2c10c3bef0fae93907c136c83",
+  "seconds": 53.95542806002777,
+  "limits": "No V32 GPU/full inference executed. V31 did not save all180 pre-rounding FP32 arrays; only the two existing first-image probe FP32 arrays were available for that dtype guard. No features recreated, quality predicted, model fit, source mutation or publication.",
+  "new_inference_fit_geometry_or_GPU": false
+}

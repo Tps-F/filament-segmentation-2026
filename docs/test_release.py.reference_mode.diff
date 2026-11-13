@@ -1,0 +1,31 @@
+--- immutable_v31/test_release.py
++++ derived_v32/test_release.py
+@@ -26,7 +26,7 @@
+     """Test the same guards both before and after actual author binding."""
+     actual=runner.verify_bundle()
+     source=runner.read(ROOT/'docs/disjoint_unbound_recipe.json') if actual['status']=='BOUND_ACTUAL_FINAL_ARTIFACTS' else actual
+-    fixture=copy.deepcopy(source)
++    fixture=copy.deepcopy(source);fixture['reference_policy']=actual['reference_policy']
+     assert fixture['status']=='UNBOUND_DISJOINT_FINAL_ARTIFACTS'
+     return fixture
+ 
+@@ -90,16 +90,9 @@
+         _,kept,_=runner.selected_disjoint(ties,np.array([.9,.2]));self.assertEqual([d['source_index'] for d in kept],[2])
+ 
+     def test_worker_and_archive_bytes_remain_parent_copies(self):
+-        proof=runner.read(ROOT/'docs/exact_copy_provenance.json')
+-        self.assertTrue(proof['worker_unchanged'] and proof['all_weight_archives_and_quality_unchanged'])
+-        for name,row in proof['copied_files'].items():
+-            if name!='worker.py':self.assertEqual(runner.digest(ROOT/name),row['sha256'])
+-        amended=runner.read(ROOT/'docs/v31_exact_copy_provenance.json')
+-        self.assertTrue(amended['all_model_archives_quality_inference_geometry_exact'])
+-        for name,row in amended['copied_files'].items():self.assertEqual(runner.digest(ROOT/name),row['sha256'])
+-        spec=importlib.util.spec_from_file_location('amend',ROOT/'docs/build_v31.py')
+-        amend=importlib.util.module_from_spec(spec);spec.loader.exec_module(amend)
+-        self.assertEqual((ROOT/'worker.py').read_text(),amend.expected_worker((ROOT/'docs/historical_v3_worker.py').read_text()))
++        proof=runner.read(ROOT/'docs/v32_exact_copy_provenance.json')
++        self.assertTrue(proof['all_model_archives_quality_and_numeric_sources_exact'])
++        for name,row in proof['copied_files'].items():self.assertEqual(runner.digest(ROOT/name),row['sha256'])
+         self.assertEqual(runner.digest(ROOT/'src/disjoint_masks.py'),runner.DISJOINT_HELPER_SHA)
+ 
+     def test_binding_documentation_distinguishes_binding_from_reproduction(self):

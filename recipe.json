@@ -1,5 +1,5 @@
 {
-  "kind": "own_all707_S20_deterministic_semantic_B5_Conv_q20_disjoint_v31",
+  "kind": "own_all707_S20_deterministic_semantic_B5_Conv_q20_disjoint_v32",
   "status": "BOUND_ACTUAL_FINAL_ARTIFACTS",
   "semantic_members": [
     {
@@ -144,7 +144,7 @@
     "deterministic_adapter_sha256": "b8bcad63dd0eca1d5fd23937aa337f72e8331c658bc7be79255ecebf9fe8a301",
     "semantic_runner_sha256": "e3a364eba3a9b2a5e333599de3fe6ec2aa6e731db7f8a9b10298e4bf5777f698"
   },
-  "limitation": "Actual corrected CSV binding is verified; full180/cross-GPU reproduction remains untested. No new model or quality fit. Only the post-q20 fixed clipping rule changes masks; old overlapping validation scores do not establish post-clipping quality.",
+  "limitation": "Same frozen weights/precision/backend/TTA/math as v3.1. Explicit report-only reference mode records canonical GB10 output-byte differences while preserving validity guards; completion is not proof of matching the submitted CSV on another GPU. This derived runner has not performed GPU inference.",
   "parent_v2": {
     "bundle_sha256": "ec057ed02e0a03381c906b7510152e1da94eb9de12c00b5fb81117c81555d4ad",
     "candidate_sha256": "526b14a2f044fa427f7c64dd407af002da4a5a195b8ea7530a0106364302b6f6",
@@ -214,5 +214,24 @@
     },
     "implementation_change": "Post-inference assertion/reporting only; native CUDA capability probe, model constructor, prediction and all180 reference guards unchanged."
   },
-  "v31_parent_bundle_sha256": "bcf32206ed70ef6aee8c904cb8477bb1049f102a8527924efcc6ad0c91743a49"
+  "v31_parent_bundle_sha256": "bcf32206ed70ef6aee8c904cb8477bb1049f102a8527924efcc6ad0c91743a49",
+  "reference_policy": {
+    "default": "strict",
+    "choices": [
+      "strict",
+      "report-only"
+    ],
+    "report_only_changes": "Only equality to canonical GB10 output hashes becomes nonfatal.",
+    "never_relaxed": [
+      "bundle/source/weights/input hashes",
+      "native BF16/backend/precision",
+      "native shapes/finiteness",
+      "actual artifact hashes",
+      "source identity/confidence/R12",
+      "fixed q20/disjoint ownership",
+      "zero pixel overlap"
+    ],
+    "cross_hardware_equality_claim": false
+  },
+  "v32_parent_bundle_sha256": "c0380ddf51e507b59c9fb763cadd47cd5b116b113693829676ccb604f1d9cdee"
 }
