@@ -1,0 +1,13 @@
+Own S20 + deterministic B5/Conv + fixed q20 + disjoint final export (v3)
+
+STATUS: Canonical corrected output is unbound until author review. run.py defaults to plan-only and refuses execution until actual binding. Existing model archives and worker.py are byte-identical to immutable v2. No model export, training or quality refit occurred.
+
+The unchanged boundary and quality stages select instances at q20. Only afterward, stable descending ORIGINAL detector confidence assigns pixels. Already retained occupancy is subtracted; a remainder under5pixels is dropped and claims no pixels. Retained clipped parts remain one source object. No added morphology, NMS, quality reranking or mask splitting occurs. Final native area sum must equal union exactly.
+
+Parent v2 candidate526b14a2... was rejected by Kaggle for overlapping masks. It is historical invalid-output evidence, retained unchanged outside this package. Copied v2 source/weight/provenance documents are historical; only the new disjoint binding proof establishes the canonical v3 CSV. Prior overlapping validation scores do not establish post-clipping quality.
+
+Install requirements.txt into your chosen compatible environment. The shipped notebook has1Markdown+3code cells. Set its3paths and explicitly set RUN_FULL=True to execute; no automatic execution. CLI: python run.py --execute --test-dir /official/test/test_images --output /new/output . CPU contracts: python test_release.py . Author-only binding uses build_local.py and is not needed for an already bound release.
+
+Hardware: reference NVIDIA GB10, PyTorch2.14.1+cu130 and native CUDA BF16. Semantic workers require capability>=8 and native BF16, reject T4/emulation/precision fallback. The detector uses original fresh-process FP32 defaults with unset CUBLAS; each semantic worker independently sets strict deterministic backend settings. Parent remains CPU-only. Three fresh processes,10800-second absolute budget and process-group cleanup preserve failures.
+
+All180 original detector raw, semantic member and equal-probability hashes plus final CSV must reproduce exactly in any actual run; unsupported numerical realizations stop with evidence. One-image probe evidence does not establish full180 or cross-hardware parity. No fresh-machine/Jupyter/new-install claim is made by preparation. The reproduction path does not read annotation labels, train, fit, download weights or upload. No data images, annotation labels, credentials or canonical CSV prediction rows are included.

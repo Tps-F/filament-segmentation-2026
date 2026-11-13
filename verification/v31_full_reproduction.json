@@ -1,0 +1,15 @@
+{
+  "status": "fresh_local_clone_exact_notebook_cells_reproduced",
+  "plan_sha256": "5fc9a9e97ddda119f7f3560eb0d7a5a74c62f5b0d874aa7306a4c7d0bc214e50",
+  "bundle_sha256": "c0380ddf51e507b59c9fb763cadd47cd5b116b113693829676ccb604f1d9cdee",
+  "clone_commit": "7043c95a942ff96ede99cbda924828c0e3370ddf",
+  "candidate_sha256": "9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c",
+  "executed_cells_sha256": "959d6a20ece5e9cc02c5dd34cb81db8a20eba410f5fd0c6dfb3d2bce091c5c46",
+  "environment_sha256": "80ea31a7a6ede9394b93be25fa690f4ca08df679677b498ac36e92261a97e350",
+  "cell_count": 4,
+  "executed_code_cells": 3,
+  "Jupyter_kernel": false,
+  "new_environment_install": false,
+  "upload": false,
+  "finished_unix": 1794530107.0103729
+}

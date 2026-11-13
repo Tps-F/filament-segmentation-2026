@@ -1,0 +1,34 @@
+{
+  "status": "reproduction_finished",
+  "csv_sha256": "9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c",
+  "expected_csv_sha256": "9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c",
+  "exact_csv_reproduction": true,
+  "export": {
+    "path": "/home/okamoto/filament-segmentation-2026/outputs/diagnostics/own_s_full_disjoint_v31_fresh_clone/generated/candidate.csv",
+    "filaments": 1219,
+    "images_processed": 180,
+    "empty_images": [
+      "20210607142350Bh"
+    ]
+  },
+  "images": 180,
+  "separate_fresh_processes": true,
+  "parent_cuda_initialized": false,
+  "source_ID_R12_RLE_selection_verified": true,
+  "final_export": {
+    "stage": "after unchanged q20 selection",
+    "order": "original detector confidence descending; stable selected-order ties",
+    "min_remaining_area": 5,
+    "confidence_floor": 0.0,
+    "extra_mask_nms": null,
+    "dropped_remainder_occupies_pixels": false,
+    "added_pixels": false,
+    "helper_sha256": "22a9856fcb841479b879e761450055f830e90cf6dc947f4e8579ad55923e6e3b"
+  },
+  "all180_final_masks_pixel_disjoint": true,
+  "seconds": 2486.810602994985,
+  "quality_fitted": false,
+  "submitted": false,
+  "trained": false,
+  "scope": "This run only. Prior one-image deterministic probe did not establish full180/crossGPU parity; exact guards decide this actual run."
+}

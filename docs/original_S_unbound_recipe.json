@@ -1,0 +1,117 @@
+{
+  "kind": "own_all707_S20_equal_B5_Conv_q20",
+  "status": "UNBOUND_PREPARATION_ONLY",
+  "semantic_members": [
+    {
+      "name": "unet_b5_full",
+      "encoder": "timm-efficientnet-b5",
+      "archive": "weights/unet_b5_full/archive.json",
+      "original_checkpoint_sha256": "b9632c84f303b9990f8bafcc33dddfc74d630e65fd7a5f390c7c98257176b2cb",
+      "inference_checkpoint_sha256": "f9069fd1bc358f9c4a7087d9fa60e14d442cc62633ff806691d93f73fb436ce5",
+      "original_bytes": 125855193,
+      "inference_bytes": 125850519,
+      "bytes_saved": 4674,
+      "tensor_count": 916,
+      "all_retained_tensor_bytes_exact": true,
+      "dtype_conversion": false,
+      "weight": 0.5
+    },
+    {
+      "name": "unet_convnext_tiny_full",
+      "encoder": "tu-convnext_tiny.in12k_ft_in1k",
+      "archive": "weights/unet_convnext_tiny_full/archive.json",
+      "original_checkpoint_sha256": "370d8773f15b8ac7db752b361751218060e8518fb98a6739832b5e57aa218ddf",
+      "inference_checkpoint_sha256": "810e921d93bb5bb85025867f78d9e8c7c9515c2d733e50240e06c74a9c3dc7b5",
+      "original_bytes": 127805299,
+      "inference_bytes": 127803931,
+      "bytes_saved": 1368,
+      "tensor_count": 242,
+      "all_retained_tensor_bytes_exact": true,
+      "dtype_conversion": false,
+      "weight": 0.5
+    }
+  ],
+  "semantic_inference": {
+    "native": 2048,
+    "tile_size": 768,
+    "stride": 512,
+    "batch_size": 4,
+    "tta": 4,
+    "scale": 1.0,
+    "amp": "CUDA BF16",
+    "channels_last": true,
+    "input": "cv2.IMREAD_GRAYSCALE native uint8"
+  },
+  "semantic_training": {
+    "official_train_images": 707,
+    "validation_images": 0,
+    "data_signature": "c9d01145c9ee59baa19612f1ecf1f0d8d98c3a9fb3ba8af9aa08ca2ba8e62b85",
+    "annotation_sha256": "5da9e92b5a1a1947fd5d57adb6688269625c48ec1ef884daf2a01618c9ed54a1",
+    "all_data_epochs": 20,
+    "all_data_steps": 4000
+  },
+  "rounding": "Independent member float16 cache -> equal float32 weighted mean -> float16 equal cache -> float32 features.",
+  "detector": {
+    "name": "yolo26s_full",
+    "archive": null,
+    "source_checkpoint_sha256": null,
+    "inference_checkpoint_sha256": null,
+    "training_images_expected": 707,
+    "completed_epochs_expected": 20,
+    "epoch_expected": 19,
+    "ema_updates_expected": 2900,
+    "inference": {
+      "native": 2048,
+      "imgsz": 1536,
+      "raw_confidence": 0.03,
+      "box_nms_iou": 0.5,
+      "mask_nms_iou": 0.5,
+      "min_area": 5,
+      "max_det": 100,
+      "retina_masks": true,
+      "tta": false,
+      "precision": "Unchanged Ultralytics model.predict default FP32; do not enable half."
+    }
+  },
+  "boundary": {
+    "semantic_weight": 0.75,
+    "original_mask_gaussian_weight": 0.25,
+    "gaussian_sigma": 3.0,
+    "kernel": 25,
+    "R": 12,
+    "support": "ellipse dilation of original mask",
+    "pixel_threshold": 0.5,
+    "mask_nms_before_and_after": 0.5,
+    "minimum_area": 5,
+    "disjoint_clipping": false
+  },
+  "quality": {
+    "file": "weights/quality_model.joblib",
+    "sha256": "05ef8e57def758488c825de77dce9900a1d93788607e2513902403650c1b44b1",
+    "features": 27,
+    "threshold": 0.2,
+    "clip": [
+      0.0,
+      1.0
+    ],
+    "raw_floor": 0.03,
+    "refit": false,
+    "note": "Original detector confidence is feature27; .20 detector confidence is not an extra selection filter."
+  },
+  "future_artifact_sha256": {
+    "outputs/diagnostics/yolo_s_full_test_preparation/final_checkpoint.pt": null,
+    "outputs/yolo26s_full/weights/last_resume.pt": null,
+    "outputs/yolo26s_full/training_verification.json": null,
+    "notebooks/verify_yolo_s_full.py": null,
+    "outputs/diagnostics/yolo_s_full_test_preparation/captured.json": null,
+    "outputs/diagnostics/yolo_s_full_test_preparation/complete.json": null,
+    "outputs/diagnostics/yolo_s_full_test_preparation/launch_plan.json": null,
+    "outputs/diagnostics/yolo_s_full_test_preparation/dry_run.log": null,
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20/report.json": null,
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20/candidate.csv": null
+  },
+  "expected_candidate_sha256": null,
+  "expected_instances": null,
+  "expected_images": 180,
+  "full_release_reproduction_executed": false
+}

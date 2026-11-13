@@ -1,0 +1,23 @@
+{
+  "reviewer": "root",
+  "approved_for_actual_export_binding": true,
+  "preparation_sha256": "816be9045e538fb8c8ff8805eb468360448e5a46dc8f3f411a1bf0b851452833",
+  "actual_file_sha256": {
+    "outputs/diagnostics/yolo_s_disjoint_compliance_v3/plan.json": "9fd3558ec63fec7450c8bff02cdfd672cb17fe4ab12894de09646546382e600b",
+    "outputs/diagnostics/yolo_s_disjoint_compliance_v3/complete.json": "03892e2e703cc4e146cb52294b04a95eb5c5486491e30174fee7247db43399df",
+    "outputs/diagnostics/yolo_s_disjoint_compliance_v3/root_review.json": "5d571361d55b0098a4a1b5e5d800c70d78523adc7fd80287b3887f95cf915030",
+    "outputs/diagnostics/yolo_s_disjoint_compliance_v3/remote_review.json": "31321c409d1f97939d89f3ade769fb454ad416f746ff0f8aa688cfe32486836b",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/candidate.csv": "9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/source_ids.json": "310fed86d86a52e91a96d2acd23ddbb0420e742c09c3bf25f9f9376eedab41b7",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/per_image_audit.json": "1da37cdac28ec51fa993fd128b4d051453a690533aceffc36021f71dd4a02546",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/prediction_seal.json": "d23531fa3aa3b89f57063ead6cbfab67330f2cf981b48449e40c63279e9efcb8",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/report.json": "fff50bf7d2b9032a6d597dc41c3d56dbce7d0275cffcf0e0a2f04385953700df"
+  },
+  "independent_completed_audit_approved": true,
+  "independent_completed_audit": {
+    "path": "outputs/diagnostics/yolo_s_disjoint_compliance_v3/root_independent_replay.json",
+    "sha256": "aa3285c591f5f02a3df59d6c10436589a213b1876c33f3ebe8b9516a1945d62d"
+  },
+  "utc": "2026-11-12T23:34:09.146580+00:00",
+  "root_source_review": "Read complete builder, runner delta against fully reviewed v2, test delta, notebook cells, final README/notice/status update. Rehashed all76 files. Native workers/model archives unchanged, only fixed final disjoint export. Independent all321 replay and strict TEST format dry-run passed. CPU binding only; no GPU or publication."
+}

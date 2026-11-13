@@ -1,0 +1,13 @@
+{
+  "exact_native_loader_output_parity": true,
+  "shape": [
+    1,
+    3,
+    128,
+    128
+  ],
+  "cuda_initialized": false,
+  "source_sha256": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+  "export_sha256": "efca414c7f457db55dd2788fb56aeb64ccafd297026a9421277a4715bec04af7",
+  "full_TEST_reproduction": false
+}

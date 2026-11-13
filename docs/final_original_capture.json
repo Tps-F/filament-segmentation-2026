@@ -1,0 +1,11 @@
+{
+  "checkpoint_sha256": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+  "training_verification_sha256": "a70e690d14c98d3ebfdfddc42003d22b6b300a3cc2c12b2839ac5ae9e553dc6f",
+  "completed_epochs": 20,
+  "epoch": 19,
+  "ema_updates": 2900,
+  "all707": true,
+  "cuda_initialized": false,
+  "bound_plan_sha256": "1716f77adca88cdb7792bf1139b3f242639ffb94355d60d7194cebf9dcfd8ba3",
+  "inference_performed": false
+}

@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "filename": "unet_b5_full_inference.pt",
+  "bytes": 125850519,
+  "sha256": "f9069fd1bc358f9c4a7087d9fa60e14d442cc62633ff806691d93f73fb436ce5",
+  "pieces": [
+    {
+      "file": "unet_b5_full_inference.pt.part0000",
+      "bytes": 67108864,
+      "sha256": "c80dcf584e9013321a7dcb29f3e162b9e7a389f0574acae88f237a387df33c17"
+    },
+    {
+      "file": "unet_b5_full_inference.pt.part0001",
+      "bytes": 58741655,
+      "sha256": "47b9c7b9342326cea6b9fe84204a05c004642d22e3d336cbf0227388ecb2372b"
+    }
+  ],
+  "metadata": {
+    "original_checkpoint_sha256": "b9632c84f303b9990f8bafcc33dddfc74d630e65fd7a5f390c7c98257176b2cb",
+    "epoch": 19,
+    "step": 4000,
+    "ema_updates": 3998,
+    "split_manifest_sha256": "746c450790ed172fe230b00dcddff7a5a145e9a290ebf49787d8f7845c047c6b",
+    "training_images": 707,
+    "validation_images": 0,
+    "annotation_sha256": "5da9e92b5a1a1947fd5d57adb6688269625c48ec1ef884daf2a01618c9ed54a1",
+    "data_signature": "c9d01145c9ee59baa19612f1ecf1f0d8d98c3a9fb3ba8af9aa08ca2ba8e62b85",
+    "export": "Exact EMA tensor bytes, no dtype conversion; redundant model alias/training metrics removed."
+  }
+}

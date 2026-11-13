@@ -1,0 +1,17 @@
+{
+  "plan_sha256": "7e67f4f71cb30f5362d9f9a7ee4baa27b10da8faac1ab6af18d55115b65f24ec",
+  "detector": {
+    "checkpoint_sha256": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+    "training_verification_sha256": "a70e690d14c98d3ebfdfddc42003d22b6b300a3cc2c12b2839ac5ae9e553dc6f",
+    "completed_epochs": 20,
+    "epoch": 19,
+    "ema_updates": 2900,
+    "all707": true,
+    "cuda_initialized": false
+  },
+  "native_files": 183,
+  "semantic_images": 180,
+  "semantic_metadata_sha256": "903a2e9389a3b94419bed0134d710ef07872851cd8c8e445011db3b805d9b492",
+  "candidate_application_performed": false,
+  "cuda_initialized": false
+}

@@ -1,0 +1,65 @@
+{
+  "spec": {
+    "split": "test",
+    "fold": -1,
+    "imgsz": 1536,
+    "raw_confidence": 0.03,
+    "diagnostic_confidence": 0.2,
+    "box_nms_iou": 0.5,
+    "mask_nms_iou": 0.5,
+    "min_area": 5,
+    "max_det": 100,
+    "retina_masks": true,
+    "end2end": false,
+    "semantic_weights": [
+      0.5,
+      0.5
+    ],
+    "boundary_semantic_weight": 0.75,
+    "gaussian_weight": 0.25,
+    "gaussian_sigma": 3.0,
+    "gaussian_kernel": 25,
+    "gaussian_border": "constant zero",
+    "support_radius": 12,
+    "support_shape": "OpenCV ellipse",
+    "pixel_threshold": 0.5,
+    "quality_threshold": 0.2,
+    "quality_features": 27,
+    "quality_clip": [
+      0.0,
+      1.0
+    ],
+    "quality_fit": false,
+    "detector_TTA": false,
+    "workers": 4,
+    "change": "Only replace semantic probabilities with separately completed deterministic full pair.",
+    "native_detector_reused": true,
+    "new_detector_inference": false,
+    "backend": {
+      "cublas_workspace_config": ":4096:8",
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "deterministic_algorithms": true,
+      "deterministic_warn_only": false,
+      "matmul_allow_tf32": false,
+      "cudnn_allow_tf32": true,
+      "float32_matmul_precision": "highest",
+      "native_bf16": true,
+      "threads": 4,
+      "cv2_threads": 1,
+      "amp_dtype": "bfloat16",
+      "channels_last": true,
+      "model_float_dtype": "torch.float32"
+    }
+  },
+  "plan_sha256": "7e67f4f71cb30f5362d9f9a7ee4baa27b10da8faac1ab6af18d55115b65f24ec",
+  "semantic_complete_sha256": "87cd2525f798ad13874b2a067f0baa31c4aa3dd000a03b5b710a2921f885d662",
+  "member_metadata_sha256": [
+    "33b43280599aae27afc3477844a83a3fa73d8113d2509fd20b65c6abb546680a",
+    "411e786aaf395772769cc6fff83f70727e0977b624b1b1178582eb4ce8ea2056"
+  ],
+  "checkpoint_sha256": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+  "quality_model_sha256": "05ef8e57def758488c825de77dce9900a1d93788607e2513902403650c1b44b1",
+  "original_detector_cache_reused": true,
+  "full_end_to_end_reproduction_claim": false
+}

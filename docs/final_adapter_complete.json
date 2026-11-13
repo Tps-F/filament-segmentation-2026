@@ -1,0 +1,11 @@
+{
+  "plan_sha256": "7e67f4f71cb30f5362d9f9a7ee4baa27b10da8faac1ab6af18d55115b65f24ec",
+  "report_sha256": "8b5b86180306078ad7306287c0795f19e7936e2ec382ccde36c4046f903b6780",
+  "candidate_sha256": "526b14a2f044fa427f7c64dd407af002da4a5a195b8ea7530a0106364302b6f6",
+  "dry_run_sha256": "a63fa7d742d80ed372431d810cc26eafd68483c4e62745621ac1e1694811f643",
+  "detector_inference": false,
+  "quality_fit": false,
+  "annotation_files_opened": false,
+  "GPU": false,
+  "submission": false
+}

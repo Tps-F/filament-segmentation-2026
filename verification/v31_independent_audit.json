@@ -1,0 +1,182 @@
+{
+  "status": "independent_fresh_clone_full180_reproduction_audit_pass",
+  "audit_source_sha256": "4963347129f1846590a85c200a5e77c66df0cbba1674b7620c6e60e94d8f1410",
+  "driver_plan_sha256": "5fc9a9e97ddda119f7f3560eb0d7a5a74c62f5b0d874aa7306a4c7d0bc214e50",
+  "driver_complete_sha256": "e0ef7066e1094d34b4fe44b70b45b62383e17eccafb187552c7a9e95b4585eb0",
+  "reproduction_receipt_sha256": "c81d20849d5ae08ef315c425310479e35348c44caea7f225478f7651f4627890",
+  "bundle_sha256": "c0380ddf51e507b59c9fb763cadd47cd5b116b113693829676ccb604f1d9cdee",
+  "clone_commit": "7043c95a942ff96ede99cbda924828c0e3370ddf",
+  "tracked_files": 99,
+  "package_files_verified": 98,
+  "code_cells_verified": 3,
+  "images": 180,
+  "raw_instances": 3515,
+  "final_instances": 1219,
+  "candidate_sha256": "9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c",
+  "all540_probability_hashes_and180_FP16_member_means_exact": true,
+  "all180_input_pixels_raw_hashes_source_ID_R12_RLE_zero_overlap": true,
+  "saved_geometry_features_and_quality_scores_equal_canonical": true,
+  "prior_canonical_exhaustive_feature_audit_sha256": "59d8cfc35b8afb7adbdc6eda26f953bc21969dbf17c98594fdcc81b7047f86b8",
+  "runtime_phase_receipts": {
+    "detector": {
+      "receipt_sha256": "d824caa331e9fe62c338417d638a9c9ca88708ad4e50a0037875ce986bd168d2",
+      "pid": 1818184,
+      "runtime": {
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "interpreter": "/home/okamoto/filament-segmentation-2026/.venv-repro/bin/python",
+        "pid": 1818184,
+        "torch": "2.14.1+cu130",
+        "torch_git": "5c4886908584029761b579af026dcfb627c84070",
+        "cuda": "13.0",
+        "cudnn": 92400,
+        "gpu": "NVIDIA GB10",
+        "capability": [
+          12,
+          1
+        ],
+        "module_paths": {
+          "torch": "/home/okamoto/filament-segmentation-2026/.venv-repro/lib/python3.12/site-packages/torch/__init__.py"
+        },
+        "versions": {
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.4",
+          "opencv-python": "5.0.0.93",
+          "segmentation-models-pytorch": "0.6.0",
+          "timm": "1.0.31",
+          "ultralytics": "8.4.211"
+        },
+        "environment": {
+          "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+          "NVIDIA_TF32_OVERRIDE": null,
+          "TORCH_ALLOW_TF32_CUBLAS_OVERRIDE": null,
+          "PYTORCH_ALLOC_CONF": null,
+          "PYTORCH_CUDA_ALLOC_CONF": null
+        }
+      },
+      "backend_policy": {
+        "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": false,
+        "deterministic_algorithms": false
+      }
+    },
+    "unet_b5_full": {
+      "receipt_sha256": "fc7df0ab1cbd061aa80dd066eeac3a96f83dcc62040cd59b42ab2d2b285d2329",
+      "pid": 1819952,
+      "runtime": {
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "interpreter": "/home/okamoto/filament-segmentation-2026/.venv-repro/bin/python",
+        "pid": 1819952,
+        "torch": "2.14.1+cu130",
+        "torch_git": "5c4886908584029761b579af026dcfb627c84070",
+        "cuda": "13.0",
+        "cudnn": 92400,
+        "gpu": "NVIDIA GB10",
+        "capability": [
+          12,
+          1
+        ],
+        "module_paths": {
+          "torch": "/home/okamoto/filament-segmentation-2026/.venv-repro/lib/python3.12/site-packages/torch/__init__.py"
+        },
+        "versions": {
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.4",
+          "opencv-python": "5.0.0.93",
+          "segmentation-models-pytorch": "0.6.0",
+          "timm": "1.0.31",
+          "ultralytics": "8.4.211"
+        },
+        "environment": {
+          "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+          "NVIDIA_TF32_OVERRIDE": null,
+          "TORCH_ALLOW_TF32_CUBLAS_OVERRIDE": null,
+          "PYTORCH_ALLOC_CONF": null,
+          "PYTORCH_CUDA_ALLOC_CONF": null
+        }
+      },
+      "backend_policy": {
+        "cublas_workspace_config": ":4096:8",
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": true,
+        "deterministic_warn_only": false,
+        "matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "native_bf16": true,
+        "threads": 4,
+        "cv2_threads": 1,
+        "amp_dtype": "bfloat16",
+        "channels_last": true,
+        "model_float_dtype": "torch.float32"
+      }
+    },
+    "unet_convnext_tiny_full": {
+      "receipt_sha256": "bbd51f92f01eca48dfaf8d05c27e028e81433852a7fc3041dcaab0514203ff72",
+      "pid": 1830325,
+      "runtime": {
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "interpreter": "/home/okamoto/filament-segmentation-2026/.venv-repro/bin/python",
+        "pid": 1830325,
+        "torch": "2.14.1+cu130",
+        "torch_git": "5c4886908584029761b579af026dcfb627c84070",
+        "cuda": "13.0",
+        "cudnn": 92400,
+        "gpu": "NVIDIA GB10",
+        "capability": [
+          12,
+          1
+        ],
+        "module_paths": {
+          "torch": "/home/okamoto/filament-segmentation-2026/.venv-repro/lib/python3.12/site-packages/torch/__init__.py"
+        },
+        "versions": {
+          "torch": "2.14.1+cu130",
+          "numpy": "2.5.4",
+          "opencv-python": "5.0.0.93",
+          "segmentation-models-pytorch": "0.6.0",
+          "timm": "1.0.31",
+          "ultralytics": "8.4.211"
+        },
+        "environment": {
+          "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+          "NVIDIA_TF32_OVERRIDE": null,
+          "TORCH_ALLOW_TF32_CUBLAS_OVERRIDE": null,
+          "PYTORCH_ALLOC_CONF": null,
+          "PYTORCH_CUDA_ALLOC_CONF": null
+        }
+      },
+      "backend_policy": {
+        "cublas_workspace_config": ":4096:8",
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": true,
+        "deterministic_warn_only": false,
+        "matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "native_bf16": true,
+        "threads": 4,
+        "cv2_threads": 1,
+        "amp_dtype": "bfloat16",
+        "channels_last": true,
+        "model_float_dtype": "torch.float32"
+      }
+    }
+  },
+  "all_controller_and_workers_exited": true,
+  "failed_v3_evidence_preserved_sha256": "c7df363e7fa5698f3436fed0be364171ae1fb7397914eb407f1472ddc753288f",
+  "per_image_sha256": "bd19b1b0cdd42e887c276d6a2dd6bd392f1f129cdbc286288c88ae96ff7c5402",
+  "seconds": 107.79609895905014,
+  "limitations": [
+    "Existing separate .venv-repro environment reused; no new installation or new machine.",
+    "Three shipped notebook code cells executed as plain Python, not a Jupyter kernel.",
+    "Observed exact bytes on NVIDIA GB10 only; no cross-GPU equivalence claim.",
+    "Original v3 failed runtime assertion remains preserved; this PASS applies only to v3.1."
+  ],
+  "new_model_inference": false,
+  "quality_prediction_or_fit": false,
+  "annotation_or_TEST_truth_access": false,
+  "publication_or_upload": false
+}

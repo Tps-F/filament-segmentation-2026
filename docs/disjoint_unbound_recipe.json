@@ -1,0 +1,201 @@
+{
+  "kind": "own_all707_S20_deterministic_semantic_B5_Conv_q20_disjoint_v3",
+  "status": "UNBOUND_DISJOINT_FINAL_ARTIFACTS",
+  "semantic_members": [
+    {
+      "name": "unet_b5_full",
+      "encoder": "timm-efficientnet-b5",
+      "archive": "weights/unet_b5_full/archive.json",
+      "original_checkpoint_sha256": "b9632c84f303b9990f8bafcc33dddfc74d630e65fd7a5f390c7c98257176b2cb",
+      "inference_checkpoint_sha256": "f9069fd1bc358f9c4a7087d9fa60e14d442cc62633ff806691d93f73fb436ce5",
+      "original_bytes": 125855193,
+      "inference_bytes": 125850519,
+      "bytes_saved": 4674,
+      "tensor_count": 916,
+      "all_retained_tensor_bytes_exact": true,
+      "dtype_conversion": false,
+      "weight": 0.5
+    },
+    {
+      "name": "unet_convnext_tiny_full",
+      "encoder": "tu-convnext_tiny.in12k_ft_in1k",
+      "archive": "weights/unet_convnext_tiny_full/archive.json",
+      "original_checkpoint_sha256": "370d8773f15b8ac7db752b361751218060e8518fb98a6739832b5e57aa218ddf",
+      "inference_checkpoint_sha256": "810e921d93bb5bb85025867f78d9e8c7c9515c2d733e50240e06c74a9c3dc7b5",
+      "original_bytes": 127805299,
+      "inference_bytes": 127803931,
+      "bytes_saved": 1368,
+      "tensor_count": 242,
+      "all_retained_tensor_bytes_exact": true,
+      "dtype_conversion": false,
+      "weight": 0.5
+    }
+  ],
+  "semantic_inference": {
+    "native": 2048,
+    "tile_size": 768,
+    "stride": 512,
+    "batch_size": 4,
+    "tta": 4,
+    "scale": 1.0,
+    "amp": "CUDA BF16",
+    "channels_last": true,
+    "input": "cv2.IMREAD_GRAYSCALE native uint8"
+  },
+  "semantic_training": {
+    "official_train_images": 707,
+    "validation_images": 0,
+    "data_signature": "c9d01145c9ee59baa19612f1ecf1f0d8d98c3a9fb3ba8af9aa08ca2ba8e62b85",
+    "annotation_sha256": "5da9e92b5a1a1947fd5d57adb6688269625c48ec1ef884daf2a01618c9ed54a1",
+    "all_data_epochs": 20,
+    "all_data_steps": 4000
+  },
+  "rounding": "Independent member float16 cache -> equal float32 weighted mean -> float16 equal cache -> float32 features.",
+  "detector": {
+    "name": "yolo26s_full",
+    "archive": "weights/yolo26s_full/archive.json",
+    "source_checkpoint_sha256": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+    "inference_checkpoint_sha256": "efca414c7f457db55dd2788fb56aeb64ccafd297026a9421277a4715bec04af7",
+    "training_images_expected": 707,
+    "completed_epochs_expected": 20,
+    "epoch_expected": 19,
+    "ema_updates_expected": 2900,
+    "inference": {
+      "native": 2048,
+      "imgsz": 1536,
+      "raw_confidence": 0.03,
+      "box_nms_iou": 0.5,
+      "mask_nms_iou": 0.5,
+      "min_area": 5,
+      "max_det": 100,
+      "retina_masks": true,
+      "tta": false,
+      "precision": "Unchanged Ultralytics model.predict default FP32; do not enable half."
+    }
+  },
+  "boundary": {
+    "semantic_weight": 0.75,
+    "original_mask_gaussian_weight": 0.25,
+    "gaussian_sigma": 3.0,
+    "kernel": 25,
+    "R": 12,
+    "support": "ellipse dilation of original mask",
+    "pixel_threshold": 0.5,
+    "mask_nms_before_and_after": 0.5,
+    "minimum_area": 5,
+    "disjoint_clipping": false
+  },
+  "quality": {
+    "file": "weights/quality_model.joblib",
+    "sha256": "05ef8e57def758488c825de77dce9900a1d93788607e2513902403650c1b44b1",
+    "features": 27,
+    "threshold": 0.2,
+    "clip": [
+      0.0,
+      1.0
+    ],
+    "raw_floor": 0.03,
+    "refit": false,
+    "note": "Original detector confidence is feature27; .20 detector confidence is not an extra selection filter."
+  },
+  "expected_candidate_sha256": null,
+  "expected_instances": null,
+  "expected_images": 180,
+  "full_release_reproduction_executed": false,
+  "semantic_backend_policy": {
+    "cublas_workspace_config": ":4096:8",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "native_bf16": true,
+    "threads": 4,
+    "cv2_threads": 1,
+    "amp_dtype": "bfloat16",
+    "channels_last": true,
+    "model_float_dtype": "torch.float32"
+  },
+  "process_policy": {
+    "fresh_worker_per_model": true,
+    "order": [
+      "detector",
+      "unet_b5_full",
+      "unet_convnext_tiny_full"
+    ],
+    "detector_CUBLAS_WORKSPACE_CONFIG": null,
+    "detector_cudnn_benchmark": false,
+    "detector_deterministic_algorithms": false,
+    "semantic_CUBLAS_before_torch": ":4096:8",
+    "CPU_parent_geometry_mean_quality": true,
+    "no_inherited_backend_state": true
+  },
+  "hardware": {
+    "native_BF16_required": true,
+    "unsupported": "T4/emulation; no precision fallback",
+    "reference_GPU": "NVIDIA GB10",
+    "full180_release_reproduction": false,
+    "crossGPU_byte_parity": false
+  },
+  "canonical_sources": {
+    "native_pipeline_sha256": "c7aa2ced2dc283007a04e628fc52671577ef6cb0a4e6ec0a496284e2e23481d5",
+    "deterministic_adapter_sha256": "b8bcad63dd0eca1d5fd23937aa337f72e8331c658bc7be79255ecebf9fe8a301",
+    "semantic_runner_sha256": "e3a364eba3a9b2a5e333599de3fe6ec2aa6e731db7f8a9b10298e4bf5777f698"
+  },
+  "limitation": "No new model or quality fit. Exact final disjoint export changes only q20-selected mask pixels; prior validation scores do not establish accuracy after clipping. Future canonical corrected CSV must be independently audited and bound before execution.",
+  "parent_v2": {
+    "bundle_sha256": "ec057ed02e0a03381c906b7510152e1da94eb9de12c00b5fb81117c81555d4ad",
+    "candidate_sha256": "526b14a2f044fa427f7c64dd407af002da4a5a195b8ea7530a0106364302b6f6",
+    "status": "historical_invalid_output_evidence_overlapping_masks_rejected_by_Kaggle",
+    "files_preserved_unchanged": true
+  },
+  "upstream_v2_artifact_sha256": {
+    "outputs/diagnostics/yolo_s_full_test_preparation/final_checkpoint.pt": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+    "outputs/yolo26s_full/weights/last_resume.pt": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+    "outputs/yolo26s_full/training_verification.json": "a70e690d14c98d3ebfdfddc42003d22b6b300a3cc2c12b2839ac5ae9e553dc6f",
+    "notebooks/verify_yolo_s_full.py": "f305876d1d8039e1ec2f1402fee4b73d88d3f643a1408deef2045b219ebbea12",
+    "outputs/diagnostics/yolo_s_full_test_preparation/captured.json": "398c0f42c414ea4df54131acd8cec3de110bb08bf63c3c08b1d0000010942143",
+    "outputs/diagnostics/yolo_s_full_test_preparation/complete.json": "430d84c8804880a4823006893e8cdd931166498942362b4b6418b7a0ba1946db",
+    "outputs/diagnostics/yolo_s_full_test_preparation/launch_plan.json": "1716f77adca88cdb7792bf1139b3f242639ffb94355d60d7194cebf9dcfd8ba3",
+    "outputs/diagnostics/yolo_s_full_deterministic_semantic_preparation/bound.json": "f950adfb80adc649ad9d7ab51c1d28f28fcf70d3a3522b98d87eadae190480c0",
+    "outputs/diagnostics/yolo_s_full_deterministic_semantic_preparation/complete.json": "791e1dcafd7ed081c0ef86c31153e57a98eae5d70008fda21cf3780883a4e553",
+    "outputs/diagnostics/yolo_s_full_deterministic_semantic_preparation/launch_plan.json": "7e67f4f71cb30f5362d9f9a7ee4baa27b10da8faac1ab6af18d55115b65f24ec",
+    "outputs/diagnostics/yolo_s_full_deterministic_semantic_preparation/dry_run.log": "a63fa7d742d80ed372431d810cc26eafd68483c4e62745621ac1e1694811f643",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_v1/report.json": "8b5b86180306078ad7306287c0795f19e7936e2ec382ccde36c4046f903b6780",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_v1/candidate.csv": "526b14a2f044fa427f7c64dd407af002da4a5a195b8ea7530a0106364302b6f6",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_v1/deterministic_recipe.json": "1d6a37ec09c159bb5e6991c9e0cf235a773350b357c2f65e183d9889fbc1a6d6",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_v1/native_seal.json": "d0561bffe7709182d3ac1ddb14dbe8374a9719462264be02788590c1d574d7f3",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_v1/per_image_audit.json": "9db51218e64255ea0b731d406cfa870f7c4a47b676ee4957b9cdfe34b746f641",
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_v1/geometry_sealed.json": "9e460b9f6f2a939a5117b94b65d8a0205c8c82cf446434c6d105dc9764c6fcaf",
+    "outputs/diagnostics/semantic_deterministic_full/complete.json": "87cd2525f798ad13874b2a067f0baa31c4aa3dd000a03b5b710a2921f885d662",
+    "outputs/diagnostics/semantic_deterministic_full/mean_audit.json": "7196f446a1c1398587f250d91c52dfc58bbeb93a52c542bed4dd0f8609d80dcb",
+    "outputs/diagnostics/semantic_deterministic_full/launch_plan.json": "ae46027eebb578e9c11690f7d0f498cb3160bf9d560bf0c35a5e18b57e8a019e",
+    "outputs/deterministic_semantic_full/unet_b5_full_e020_tta4/inference_config.json": "33b43280599aae27afc3477844a83a3fa73d8113d2509fd20b65c6abb546680a",
+    "outputs/deterministic_semantic_full/unet_b5_full_e020_tta4/run_receipt.json": "9ab9e642e5606b8c2f838acb6f94345c25b32a987edc4b262838d580cc1430b9",
+    "outputs/deterministic_semantic_full/unet_convnext_tiny_full_e020_tta4/inference_config.json": "411e786aaf395772769cc6fff83f70727e0977b624b1b1178582eb4ce8ea2056",
+    "outputs/deterministic_semantic_full/unet_convnext_tiny_full_e020_tta4/run_receipt.json": "be15ad5eba01b621a82300e036816394db6d81dbb31fa8ec9c2fb62ba2ecf9c2"
+  },
+  "future_artifact_sha256": {
+    "outputs/diagnostics/yolo_s_disjoint_compliance_v3/plan.json": null,
+    "outputs/diagnostics/yolo_s_disjoint_compliance_v3/complete.json": null,
+    "outputs/diagnostics/yolo_s_disjoint_compliance_v3/root_review.json": null,
+    "outputs/diagnostics/yolo_s_disjoint_compliance_v3/remote_review.json": null,
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/candidate.csv": null,
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/source_ids.json": null,
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/per_image_audit.json": null,
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/prediction_seal.json": null,
+    "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_disjoint_v3/report.json": null
+  },
+  "final_export": {
+    "stage": "after unchanged q20 selection",
+    "order": "original detector confidence descending; stable selected-order ties",
+    "min_remaining_area": 5,
+    "confidence_floor": 0.0,
+    "extra_mask_nms": null,
+    "dropped_remainder_occupies_pixels": false,
+    "added_pixels": false,
+    "helper_sha256": "22a9856fcb841479b879e761450055f830e90cf6dc947f4e8579ad55923e6e3b"
+  }
+}

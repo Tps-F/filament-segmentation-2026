@@ -1,0 +1,71 @@
+{
+  "status": "verified_completed_all_data",
+  "verified_utc": "2026-11-12T22:53:31.283966+00:00",
+  "checkpoint_path": "outputs/yolo26s_full/weights/last_resume.pt",
+  "checkpoint_sha256": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+  "completed_epochs": 20,
+  "epoch": 19,
+  "ema_updates": 2900,
+  "data_signature": "c9d01145c9ee59baa19612f1ecf1f0d8d98c3a9fb3ba8af9aa08ca2ba8e62b85",
+  "training_images": 707,
+  "validation_images": 0,
+  "source_checkpoint_sha256": "a1d7a9a610807c99863e7aed28aeafc633e554a5a327de2fcd98a8ddc5117f60",
+  "finite_model_and_optimizer_tensors": true,
+  "exact_csv_embedded_history": true,
+  "provenance_matches": true,
+  "fresh_initialization_verified": true,
+  "scaler_disabled_for_BF16": true,
+  "strict_model_load": true,
+  "parameters": 10678896,
+  "cuda_initialized": false,
+  "source_hashes": {
+    "src/train_yolo_s_full.py": "bf61a8c180fac317150734cc52620e90be4d6b7e1388a01561c43a2625c3d210",
+    "src/train_yolo.py": "427199bbc09a41c1fda4a8b5b8a830d6fe736067bc25c761f7a2da7a513c6c7a",
+    "src/prepare_yolo.py": "ad5c9f27d034a876b49b4baf753eaf2a3ad9cff97f8ff5afb8ac8acea55835d6",
+    "notebooks/verify_yolo_s_full.py": "f305876d1d8039e1ec2f1402fee4b73d88d3f643a1408deef2045b219ebbea12"
+  },
+  "exited_trainer_processes": [
+    {
+      "pid": 1742633,
+      "start_token": "65099695",
+      "session_id": 1742633,
+      "cmdline": "/bin/bash -c .venv/bin/python - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,subprocess\nh=lambda p:hashlib.sha256(Path(p).read_bytes()"
+    },
+    {
+      "pid": 1742637,
+      "start_token": "65099712",
+      "session_id": 1742633,
+      "cmdline": "timeout --signal=TERM --kill-after=30s 21600s .venv/bin/python -u -m src.train_yolo_s_full --run outputs/yolo26s_full --device 0 "
+    },
+    {
+      "pid": 1742638,
+      "start_token": "65099712",
+      "session_id": 1742633,
+      "cmdline": ".venv/bin/python -u -m src.train_yolo_s_full --run outputs/yolo26s_full --device 0 "
+    }
+  ],
+  "process_identity_receipt_sha256": "7f391c7225f96650b6a95d99cc481be0a597f7f2cde53129fc92061f390a0841",
+  "initial_receipt_sha256": {
+    "fresh_initialization_verified.json": "188bf8eb8b2901a3714796faedc94f02ccf51765301ec2da756d15b39263282c",
+    "initialization_source_receipt.json": "cc94294c4310b50a5c6caa773514edb17921a435a4cacc3ed4bc2a840d254418",
+    "provenance.json": "fd4f1e479a90fe247a8629d61201a8e098377e68d2e73ecf9be102ef6fa1dc25",
+    "launch_args.json": "b40059b23f350451c3b59f9f216318c27e370634d5f0fe8209f12bb8b9d89a51"
+  },
+  "results_csv_sha256": "10066339be6ae46734d9ea088dc0b29d98184f654f943bd7e3665633f662540e",
+  "final_recipe": {
+    "epochs": 20,
+    "batch": 8,
+    "nbs": 8,
+    "imgsz": 1536,
+    "amp": "bf16",
+    "mask_ratio": 2,
+    "overlap_mask": false,
+    "lr0": 0.0002,
+    "optimizer": "AdamW",
+    "cos_lr": true,
+    "seed": 2026,
+    "val": false,
+    "save_period": 10
+  },
+  "checkpoint_selection": "Fixed final20 only; no best-by-metric selection."
+}

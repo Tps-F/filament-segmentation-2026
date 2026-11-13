@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "filename": "yolo26s_full_inference.pt",
+  "bytes": 22090543,
+  "sha256": "efca414c7f457db55dd2788fb56aeb64ccafd297026a9421277a4715bec04af7",
+  "pieces": [
+    {
+      "file": "yolo26s_full_inference.pt.part0000",
+      "bytes": 22090543,
+      "sha256": "efca414c7f457db55dd2788fb56aeb64ccafd297026a9421277a4715bec04af7"
+    }
+  ],
+  "metadata": {
+    "source_checkpoint_sha256": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+    "epoch": 19,
+    "ema_updates": 2900,
+    "policy": "Exact final EMA tensor bytes as native model; no dtype conversion. No training optimizer."
+  }
+}

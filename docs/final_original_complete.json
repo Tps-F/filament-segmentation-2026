@@ -1,0 +1,9 @@
+{
+  "report_sha256": "249a9b94c6679db8b69887ae2d4a3ef0a33bf4f7280dbe4fe8611fdf338629ef",
+  "candidate_sha256": "7020800b65136bd279f319aed725e00821a6dac7d3272501e4f72c96c06fd2d8",
+  "dry_run_sha256": "b0e8c374739484ecb933483b16a449f7a7bca15ffd13c659cebf1bf196331421",
+  "plan_sha256": "1716f77adca88cdb7792bf1139b3f242639ffb94355d60d7194cebf9dcfd8ba3",
+  "submission": false,
+  "annotation_files_opened": false,
+  "quality_fit": false
+}

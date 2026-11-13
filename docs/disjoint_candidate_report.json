@@ -1,0 +1,10 @@
+{
+  "status": "complete_disjoint_format_correction",
+  "prediction_seal_sha256": "d23531fa3aa3b89f57063ead6cbfab67330f2cf981b48449e40c63279e9efcb8",
+  "candidate_sha256": "9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c",
+  "overlap": {
+    "pixel_disjoint": true,
+    "excess_overlap_pixels": 0
+  },
+  "scope": "CPU-only exact existing ownership after frozen q20; no labels, fit, new inference, GPU or upload."
+}

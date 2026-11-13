@@ -1,0 +1,15 @@
+{
+  "status": "complete_final_fit_only",
+  "utc": "2026-11-12T21:15:18.838095+00:00",
+  "plan_sha256": "05bbf413ab7d71ccf213324a0c12421592aa51fde97c44402a0552058ff32b3e",
+  "model_sha256": "05ef8e57def758488c825de77dce9900a1d93788607e2513902403650c1b44b1",
+  "source_images": 141,
+  "date_groups": 60,
+  "candidate_count": 1675,
+  "feature_count": 27,
+  "threshold": 0.2,
+  "serialized_prediction_parity": true,
+  "new_validation_score": null,
+  "test_accessed": false,
+  "submission": false
+}

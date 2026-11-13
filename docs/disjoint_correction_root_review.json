@@ -1,0 +1,13 @@
+{
+  "approved_for_fixed_cpu_application": true,
+  "plan_sha256": "9fd3558ec63fec7450c8bff02cdfd672cb17fe4ab12894de09646546382e600b",
+  "utc": "2026-11-12T23:22:24.172542+00:00",
+  "root_full_source_review": [
+    "src/disjoint_masks.py",
+    "src/yolo_disjoint_compliance.py",
+    "tests/test_yolo_disjoint_compliance.py"
+  ],
+  "actual_pins_verified": 351,
+  "peer_review_sha256": "31321c409d1f97939d89f3ade769fb454ad416f746ff0f8aa688cfe32486836b",
+  "scope": "One fixed format correction on saved heldoutS60 and finalS20 deterministic outputs. Preserve q20/source selection; confidence-ordered ownership matches historical utility, no extraNMS or threshold tuning. Seal both predictions before validationGT; root will run strict TEST dry-run separately. No GPU or upload."
+}

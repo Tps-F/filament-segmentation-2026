@@ -1,0 +1,4 @@
+assembled/
+generated/
+__pycache__/
+*.pyc

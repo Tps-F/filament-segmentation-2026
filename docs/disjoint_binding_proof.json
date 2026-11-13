@@ -1,0 +1,24 @@
+{
+  "candidate_sha256": "9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c",
+  "images": 180,
+  "instances": 1219,
+  "all180_original_selection_clipping_replay_exact": true,
+  "all180_final_masks_pixel_disjoint": true,
+  "helper_sha256": "22a9856fcb841479b879e761450055f830e90cf6dc947f4e8579ad55923e6e3b",
+  "policy": {
+    "stage": "after unchanged q20 selection",
+    "order": "original detector confidence descending; stable selected-order ties",
+    "min_remaining_area": 5,
+    "confidence_floor": 0.0,
+    "extra_mask_nms": null,
+    "dropped_remainder_occupies_pixels": false,
+    "added_pixels": false,
+    "helper_sha256": "22a9856fcb841479b879e761450055f830e90cf6dc947f4e8579ad55923e6e3b"
+  },
+  "independent_completed_audit": {
+    "path": "outputs/diagnostics/yolo_s_disjoint_compliance_v3/root_independent_replay.json",
+    "sha256": "aa3285c591f5f02a3df59d6c10436589a213b1876c33f3ebe8b9516a1945d62d"
+  },
+  "model_exports": false,
+  "GPU": false
+}

@@ -1,0 +1,14 @@
+This local preparation reuses unchanged source and exact exported weights from
+the previously audited own B5/ConvNeXt release. Their source provenance, original
+training configurations, split manifests and EMA tensor hashes are included.
+
+The detector is an own official-competition-data fine-tune of the generic
+Ultralytics YOLO26s model. Ultralytics code/model distribution is subject to its
+AGPL-3.0 license or a separately obtained commercial license. No license grant
+beyond the upstream terms is asserted here. Actual S20 export is pending.
+
+PyTorch, torchvision, timm, segmentation_models_pytorch, OpenCV, NumPy, SciPy,
+scikit-learn, joblib and pycocotools remain under their respective upstream
+licenses. Exact installed dependency versions are recorded in requirements.txt.
+This package contains no competition image pixels or annotation data. The user
+must obtain the official competition inputs through their own authorized access.

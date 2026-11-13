@@ -1,0 +1,37 @@
+{
+  "status": "ROOT_INDEPENDENT_ALL321_DISJOINT_EXPORT_AND_NATIVE_METRIC_PASS",
+  "source_sha256": "da5bef134b2af0bd09eec2dedff64e6b560740b5d116288c8023b0eff6fa695f",
+  "complete_sha256": "03892e2e703cc4e146cb52294b04a95eb5c5486491e30174fee7247db43399df",
+  "checks": {
+    "validation": {
+      "images": 141,
+      "instances": 906,
+      "dropped_instances": 17,
+      "removed_overlap_pixels": 78585,
+      "csv_sha256": "88816c5cd9e48c634b54c1495fd457d51b9395bb67f28a0f72c6f621d8c667b5",
+      "exact_independent_ownership_RLE_source_ids": true,
+      "zero_pixel_overlap": true
+    },
+    "test": {
+      "images": 180,
+      "instances": 1219,
+      "dropped_instances": 29,
+      "removed_overlap_pixels": 59372,
+      "csv_sha256": "9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c",
+      "exact_independent_ownership_RLE_source_ids": true,
+      "zero_pixel_overlap": true
+    }
+  },
+  "independently_aggregated_validation": {
+    "iou_sum": 691.3404362684165,
+    "tp": 1012,
+    "fp": 438,
+    "fn": 567,
+    "pq": 0.4564809747563001
+  },
+  "seconds": 40.87856443494093,
+  "new_model_inference": false,
+  "fit": false,
+  "test_truth_access": false,
+  "upload": false
+}

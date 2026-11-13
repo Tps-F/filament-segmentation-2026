@@ -1,0 +1,99 @@
+{
+  "plan_sha256": "7e67f4f71cb30f5362d9f9a7ee4baa27b10da8faac1ab6af18d55115b65f24ec",
+  "candidate": {
+    "path": "outputs/candidates/own_yolo_s_full_equal_quality_q20_deterministic_v1/candidate.csv",
+    "filaments": 1248,
+    "images_processed": 180,
+    "empty_images": [
+      "20210607142350Bh"
+    ],
+    "sha256": "526b14a2f044fa427f7c64dd407af002da4a5a195b8ea7530a0106364302b6f6"
+  },
+  "detector": {
+    "checkpoint_sha256": "ad76892a01c5bdfb728959cf65bd6c53dbb3753f2e8c1d835594d051a8040cff",
+    "training_verification_sha256": "a70e690d14c98d3ebfdfddc42003d22b6b300a3cc2c12b2839ac5ae9e553dc6f",
+    "completed_epochs": 20,
+    "epoch": 19,
+    "ema_updates": 2900,
+    "all707": true,
+    "cuda_initialized": false
+  },
+  "quality_model_sha256": "05ef8e57def758488c825de77dce9900a1d93788607e2513902403650c1b44b1",
+  "pool_candidates": 2208,
+  "overlap": {
+    "instances": 1248,
+    "total_mask_pixels": 2448892,
+    "excess_overlap_pixels": 59372,
+    "overlapping_pairs": 57,
+    "images_with_overlap": 44,
+    "pixel_disjoint": false
+  },
+  "native_all180_source_ID_R12_RLE_quality_selection_parity": true,
+  "previews": {
+    "selection": "Per instrument suffix, median by raw count then ID; largest retained object, ties by source index. No labels.",
+    "items": [
+      {
+        "image_id": "20140520200054Bh",
+        "source_index": 0,
+        "crop_xyxy": [
+          1519,
+          1359,
+          1702,
+          1512
+        ]
+      },
+      {
+        "image_id": "20110603123034Ch",
+        "source_index": 0,
+        "crop_xyxy": [
+          889,
+          321,
+          1222,
+          575
+        ]
+      },
+      {
+        "image_id": "20120813063134Lh",
+        "source_index": 1,
+        "crop_xyxy": [
+          1102,
+          1186,
+          1446,
+          1541
+        ]
+      },
+      {
+        "image_id": "20140309170314Mh",
+        "source_index": 4,
+        "crop_xyxy": [
+          754,
+          1071,
+          1297,
+          1501
+        ]
+      },
+      {
+        "image_id": "20120405130014Th",
+        "source_index": 0,
+        "crop_xyxy": [
+          849,
+          397,
+          1290,
+          828
+        ]
+      },
+      {
+        "image_id": "20150124081954Uh",
+        "source_index": 0,
+        "crop_xyxy": [
+          873,
+          980,
+          1144,
+          1126
+        ]
+      }
+    ],
+    "sha256": "a7d5a5d21efbd4fc4af613938708b6de8c3ae3ce7cce3e6bfe1193caecf1e866"
+  },
+  "scope": "Separate deterministic-semantic candidate using unchanged original completed S20 detector cache and frozen q20 model. No annotation, fit, threshold selection, new detector inference, GPU, or upload. No accuracy or full-pipeline determinism claim."
+}

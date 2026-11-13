@@ -1,0 +1,40 @@
+{
+  "unet_b5_full": {
+    "actual_loader": "copied exact src.model.load_checkpoint(original/export, cpu, use_ema=True)",
+    "input_shape": [
+      1,
+      3,
+      64,
+      64
+    ],
+    "input_kind": "synthetic deterministic FP32 [0,1]",
+    "output_shape": [
+      1,
+      2,
+      64,
+      64
+    ],
+    "exact_output_equal": true,
+    "maximum_absolute_error": 0.0,
+    "output_sha256": "8ca1c1526d9fe59fac0a2e150b7f5dbc62d52fd1763c884af759e99a4b53502c"
+  },
+  "unet_convnext_tiny_full": {
+    "actual_loader": "copied exact src.model.load_checkpoint(original/export, cpu, use_ema=True)",
+    "input_shape": [
+      1,
+      3,
+      64,
+      64
+    ],
+    "input_kind": "synthetic deterministic FP32 [0,1]",
+    "output_shape": [
+      1,
+      2,
+      64,
+      64
+    ],
+    "exact_output_equal": true,
+    "maximum_absolute_error": 0.0,
+    "output_sha256": "8f117622a5e4f0531086fef13fcf50ab814105cc19ff69ef678c5d858fc2c965"
+  }
+}

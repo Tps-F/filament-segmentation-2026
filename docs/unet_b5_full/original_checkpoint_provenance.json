@@ -1,0 +1,24 @@
+{
+  "checkpoint": "outputs/kaggle_diverse_full/outputs/unet_b5_full/epoch_020.pt",
+  "sha256": "b9632c84f303b9990f8bafcc33dddfc74d630e65fd7a5f390c7c98257176b2cb",
+  "completed_epochs": 20,
+  "step": 4000,
+  "ema_updates": 3998,
+  "initialization": {
+    "verified_source_path": "outputs/kaggle_diverse_f0/outputs/unet_b5_f0/epoch_040.pt",
+    "source_sha256": "dcad6ee94d7694ac45c9e94df02f028d75c7e502406c938ea3ebc52e4206fad8",
+    "source_data_signature": "e993955ab8f77ae3efd5dc2b5b9c8176c89b4a23d5eee689528bf3c81e133008",
+    "target_data_signature": "c9d01145c9ee59baa19612f1ecf1f0d8d98c3a9fb3ba8af9aa08ca2ba8e62b85",
+    "fresh_optimizer_evidence": "Reviewed frozen trainer constructs AdamW after loading only source EMA; resume is absent",
+    "fresh_ema_evidence": "Downloaded checkpoint update counts must equal successful updates in this run"
+  },
+  "data_signature": "c9d01145c9ee59baa19612f1ecf1f0d8d98c3a9fb3ba8af9aa08ca2ba8e62b85",
+  "training_images": 707,
+  "validation_images": 0,
+  "finite_model_and_ema": true,
+  "training_files_sha256": {
+    "config.json": "fe0e7619fbcde315f7749df1fed72e9325fd9aa558ac3258006f55e2ddbe69d0",
+    "split_manifest.json": "746c450790ed172fe230b00dcddff7a5a145e9a290ebf49787d8f7845c047c6b",
+    "history.jsonl": "0188ebdd734287bd915d4f6ae12dd41667a69d14bcd2b6724bf5651d8623d978"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status": "read_only_review_pass",
+  "reviewer": "remote_compute",
+  "checked_utc": "2026-11-12T23:21:55.874548+00:00",
+  "plan_sha256": "9fd3558ec63fec7450c8bff02cdfd672cb17fe4ab12894de09646546382e600b",
+  "source_sha256": "0aa4d806f765b3c5a2757c2b6fae6cc007a76fbb577f9515fe31ec37db7537fb",
+  "helper_sha256": "22a9856fcb841479b879e761450055f830e90cf6dc947f4e8579ad55923e6e3b",
+  "tests_sha256": "fcae9637dd3c4888010a1d93d66e9ed45594b29d04f84a3e550cf0726c969f81",
+  "actual_pins_verified": 351,
+  "findings": [
+    "Frozen q20 selections and originalCSV/sourceIDs are reconstructed exactly before clipping; no quality reranking/refit/cutoff change.",
+    "Stable original detector-confidence descending ownership matches unchanged historical filter_detections on every image.",
+    "Remaining mask is selected mask minus already-retained occupancy; remainder<5 is dropped without claiming pixels, no newNMS/morphology/split/identity.",
+    "All outputs remain native RLE subsets of original selected R12 masks with original source IDs; finalCSV area sum equals union exactly.",
+    "Both validation andTEST predictions are sealed before validationGT opens; TEST targets never used. Fixed correction score is explicitly reused-development evidence only.",
+    "Root exact-plan gate, single durable attempt,1200s alarm and explicit ProcessPool termination cleanup preserve stopped/failed evidence."
+  ],
+  "test_evidence": "Owner6CPUcontractsPASS; test source reviewed (ties, dropped occupancy, exactly5pixels, empty/duplicateIDs, frozenq20, randomized historical-utility parity); no duplicate run.",
+  "scope": "Full read-only helper/wrapper/tests and351pin audit. No clipping application, GPU, fit, score or upload."
+}

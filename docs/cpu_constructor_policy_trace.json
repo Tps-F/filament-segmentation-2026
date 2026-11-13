@@ -1,0 +1,36 @@
+{
+  "interpreter": "/home/okamoto/filament-segmentation-2026/.venv-repro/bin/python",
+  "trace": [
+    {
+      "stage": "fresh_torch_before_ultralytics_import",
+      "CUBLAS_WORKSPACE_CONFIG": null,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": false,
+      "deterministic_algorithms": false,
+      "cuda_initialized": false
+    },
+    {
+      "stage": "after_ultralytics_YOLO_import",
+      "CUBLAS_WORKSPACE_CONFIG": null,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": false,
+      "deterministic_algorithms": false,
+      "cuda_initialized": false
+    },
+    {
+      "stage": "after_actual_exported_checkpoint_YOLO_constructor_no_forward",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": false,
+      "deterministic_algorithms": false,
+      "cuda_initialized": false
+    }
+  ],
+  "model_task": "segment",
+  "model_device": "cpu",
+  "constructor_source": "/home/okamoto/filament-segmentation-2026/.venv-repro/lib/python3.12/site-packages/ultralytics/engine/model.py",
+  "constructor_source_sha256": "b4e7d6072c0b828c2c6974d71a57a80561d360aef37036f484ddcdab6ad7059f",
+  "checkpoint_sha256": "efca414c7f457db55dd2788fb56aeb64ccafd297026a9421277a4715bec04af7",
+  "inference": false,
+  "CUDA": false
+}
