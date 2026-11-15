@@ -1,0 +1,50 @@
+{
+  "template_class": "\\documentclass[sigconf]{acmart}",
+  "preamble_source": "https://raw.githubusercontent.com/ameyypawar/filament-seg/81a739bb7786a44b989f5d76afbb6f9d22b5d1dd/reports/preamble.tex",
+  "source_repository": "https://github.com/ameyypawar/filament-seg",
+  "source_commit": "81a739bb7786a44b989f5d76afbb6f9d22b5d1dd",
+  "source_license": "MIT; copyright (c) 2026 Amey Pawar",
+  "local_license": "TEMPLATE_LICENSE.txt",
+  "preamble_sha256": "0f690e26cb5088982bedebad17a8b2f52440781ae3188ea99fc25d47114bd79a",
+  "matches_pinned_public_copy": true,
+  "source_readme_statement": "reports/preamble.tex comes from the organisers' report template.",
+  "official_overleaf": "https://www.overleaf.com/read/vjztpvrnbrdh#43fbbe",
+  "official_project_byte_identity_verified": false,
+  "verification_date": "2026-11-13",
+  "preserved_text_sources": [
+    {
+      "repository": "https://github.com/ameyypawar/filament-seg",
+      "commit": "81a739bb7786a44b989f5d76afbb6f9d22b5d1dd",
+      "main_tex_source": "https://raw.githubusercontent.com/ameyypawar/filament-seg/81a739bb7786a44b989f5d76afbb6f9d22b5d1dd/reports/main.tex",
+      "main_tex_sha256": "4586f533c4db52467a1c8988ee045f7fa2f42baa50f3c7862afff11b91b7ba26",
+      "preserved_text_sha256": {
+        "subtitle": "de504f78237ded3c3d105ed1317635f72d9934c432111bca0d58248fc6286ca7",
+        "introduction": "9adb84bb431b7637d87bc350723770971ed66d392e9790e704ee8cb41712a24d",
+        "acknowledgment": "a7fc4ec87c475dab8e72a9dc2a7df4c4224105c72da6b095505fcb493efaad04"
+      }
+    },
+    {
+      "repository": "https://github.com/regmi-sijan/solar-filament-segmentation-2026",
+      "commit": "0bff2831e96b8eea4ec6b207fec3493a313997ca",
+      "main_tex_source": "https://raw.githubusercontent.com/regmi-sijan/solar-filament-segmentation-2026/0bff2831e96b8eea4ec6b207fec3493a313997ca/report/main.tex",
+      "main_tex_sha256": "37126d9309f5d1e577e87be4a184befdced1772b0f62557f48a2286bcd9742e1",
+      "preserved_text_sha256": {
+        "subtitle": "de504f78237ded3c3d105ed1317635f72d9934c432111bca0d58248fc6286ca7",
+        "introduction": "9adb84bb431b7637d87bc350723770971ed66d392e9790e704ee8cb41712a24d",
+        "acknowledgment": "a7fc4ec87c475dab8e72a9dc2a7df4c4224105c72da6b095505fcb493efaad04"
+      }
+    }
+  ],
+  "preserved_text_verification": "Exact subtitle, common three-sentence organizer introduction, and all three acknowledgment paragraphs match both pinned derivatives. Participant-specific introduction continuations and all methods/results are excluded. Primary reuse is from the existing MIT-licensed Amey Pawar copy.",
+  "official_access_attempts": {
+    "web_open": "Official read URL inaccessible through web tool",
+    "http_get": "HTTP 200 generic Overleaf HTML shell, 35401 bytes, no project metadata or source files",
+    "official_project_byte_identity_verified": false
+  },
+  "requirements_audit": {
+    "official_evidence": "Fresh authenticated Kaggle competition pages API: Final Submission requires four-page single PDF using linked template; Prizes requires complete reproducible data/model/training/postprocessing description; abstract considers end-to-end computational efficiency. No hard runtime limit found in the 17 pages.",
+    "secondary_evidence": "Regmi pinned docs/requirements-checklist.md line 11 says four-page limit excludes acknowledgments/references and mentions pipeline graphic plus segmentation examples. This exception/content guidance has not been verified in direct official source.",
+    "conservative_layout": "Retain exactly four total PDF pages, including acknowledgment and references.",
+    "remaining_final_content_review": "Selected-method pipeline graphic and representative segmentation examples remain advisable; current draft contains only its error-budget figure."
+  }
+}

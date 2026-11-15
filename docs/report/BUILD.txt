@@ -1,0 +1,19 @@
+Final report for submission 58287816 (own S20 hybrid, public PQ 0.40)
+
+From the repository root, with Tectonic 0.17.0 available:
+
+  mkdir -p report-build
+  tectonic --keep-logs --keep-intermediates --outdir report-build \
+    docs/report/own_hybrid_submission_20261115.tex
+
+The included PDF has four total pages, including acknowledgments and
+references. No model execution or competition data is needed to build it.
+The source uses the included preamble, bibliographies, vector pipeline
+figure and fixed TRAIN-validation illustration. Figure 1 contains
+explicitly labelled synthetic masks; its Matplotlib source is included.
+No claim of byte-identical PDF regeneration is made (PDF metadata can vary).
+
+The template provenance file preserves the earlier template audit, including
+its then-pending content note. The final report now includes both the
+selected-method pipeline and TRAIN-only illustration; verification.json
+records the final checks. Official Overleaf byte identity remains unverified.

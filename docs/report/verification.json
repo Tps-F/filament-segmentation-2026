@@ -1,0 +1,41 @@
+{
+  "status": "FINAL_USER_APPROVED_REPORT_READY_FOR_PUBLICATION_REVIEW",
+  "verified_utc": "2026-11-15T00:41:28.525713+00:00",
+  "selected_submission": {
+    "ref": 58287816,
+    "public_pq": 0.4,
+    "method": "Own S20 / equal B5-ConvNeXt / frozen q20 / disjoint export",
+    "csv_sha256": "9dd513669eee8b12910e001732eea9fdd0f8a8adeb9eacab4421a544da5d9c3c"
+  },
+  "source": "docs/report/own_hybrid_submission_20261115.tex",
+  "source_sha256": "bdf2d4897d0507faf1a67c0e9a6b5610711e13c2e05ea9315cab21ff539ccda5",
+  "pdf": "docs/report/own_hybrid_submission_20261115.pdf",
+  "pdf_sha256": "035ee3a5e9933cb82afd7ef80753f0e81f619d962f95d324a18275b24371f821",
+  "code_commit": "4981db24b4f3db69f6a8054a57cd8b79ed3b4670",
+  "verified_v31_commit": "c2068b4ba7752db17e33c7b1fb16c5481ddbe11d",
+  "build_tool": "Tectonic0.17.0",
+  "build_exit": 0,
+  "pages": 4,
+  "resolved_references": 11,
+  "overfull_undefined_missing_character_warnings": [],
+  "remaining_template_warnings": [
+    "No affiliation city supplied; institution andcountry areconfirmed",
+    "ACMreference/CCS warnings fromunchanged competitionpreamble",
+    "captionhypcapignored fornonfloatingfullwidthfigure"
+  ],
+  "change_from_user_approved_manuscript": "Only label main commit changed to code commit; verifiedhashunchanged. All scientifictext, figures, tables, equations, caveatsandmetadata unchanged.",
+  "rendered_pages_same_as_approved_at1700pixels": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": false
+  },
+  "visual_review": "Pages1-3 are PNGbyte-identical toapprovedreport. Page4visuallyinspected; only codecommitlabel differs.",
+  "figure1": "Full-width vectorpipeline; schematics, notobservations; existingfigurePDF/SVG/source copiedunchanged.",
+  "figure2": "Preserved officialTRAIN-only illustration; noTESTlabels orTESTimage introduced.",
+  "pinned_bundle_files_verified": 115,
+  "pinned_bundle_mismatches": [],
+  "README_md_outside_pinned_manifest": true,
+  "code_weights_recipe_and_numeric_manifest_unchanged": true,
+  "form_submission_claim": false
+}

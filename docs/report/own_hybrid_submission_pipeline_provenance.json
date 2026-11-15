@@ -1,0 +1,14 @@
+{
+  "description": "Vector inference diagram with synthetic, explicitly labeled illustrative masks.",
+  "data_or_predictions_accessed": false,
+  "model_execution": false,
+  "fits": 0,
+  "frozen_quality_model_at_inference": true,
+  "synthetic_export_overlap_pixels": 0,
+  "files_sha256": {
+    "make_submission_pipeline_figure.py": "a4c01ee683c268c4efa28634bbdf3c6542d108ca45d9f35677480f7b425e4495",
+    "own_hybrid_submission_pipeline.pdf": "2cae148aedb8337b4d581e66fc60fa215b5a3f945259ec6fdb99656c1b0cbb6a",
+    "own_hybrid_submission_pipeline.svg": "5e2a39328c43fe0f514b62927ba9c628e1b20420c6f3e8758931c8c355ffa7f8",
+    "own_hybrid_submission_pipeline.png": "ca17ac45f70f22db1902a11c0b5d185d7f8b9c65c1240f353e74c5ae48bc6f20"
+  }
+}
