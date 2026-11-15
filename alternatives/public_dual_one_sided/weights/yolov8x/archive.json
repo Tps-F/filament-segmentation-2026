@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "filename": "yolov8x-seg-solar-filament-2048-1110.pt",
+  "bytes": 144463332,
+  "sha256": "ced0e12510abf8c53121ee1b7bf9900a015a18dadca36e40054b45198af9fab7",
+  "pieces": [
+    {
+      "file": "yolov8x-seg-solar-filament-2048-1110.pt.part0000",
+      "bytes": 67108864,
+      "sha256": "2df2602650aedefe3c916a0b8024ea2d9b3907922412e40b53a05e643d92782c"
+    },
+    {
+      "file": "yolov8x-seg-solar-filament-2048-1110.pt.part0001",
+      "bytes": 67108864,
+      "sha256": "0233f25bbfff8eed81a5ee25ff0b7334f8248c365be40d2001305594ed0d80af"
+    },
+    {
+      "file": "yolov8x-seg-solar-filament-2048-1110.pt.part0002",
+      "bytes": 10245604,
+      "sha256": "e7f81cdec117d1b4f106b51de71ff22dd79bf1b6631a726009a5d10c4921a8b1"
+    }
+  ],
+  "metadata": {
+    "ref": "hdjojo/yolov8x-seg-solar-filament/pytorch/default/1",
+    "filename": "yolov8x-seg-solar-filament-2048-1110.pt",
+    "bytes": 144463332,
+    "sha256": "ced0e12510abf8c53121ee1b7bf9900a015a18dadca36e40054b45198af9fab7"
+  }
+}

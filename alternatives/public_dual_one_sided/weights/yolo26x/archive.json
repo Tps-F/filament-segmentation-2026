@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "filename": "yolo26x-seg-solar-filament-2048-1109.pt",
+  "bytes": 142289285,
+  "sha256": "c5c02daec7b04b78481a22ade2780d55cf99755c0865a6e8e1dff22eda5d7390",
+  "pieces": [
+    {
+      "file": "yolo26x-seg-solar-filament-2048-1109.pt.part0000",
+      "bytes": 67108864,
+      "sha256": "72c94543aca6d7b2611eab2bdd6d20a423688bddcea7c3ed0e564398441e354c"
+    },
+    {
+      "file": "yolo26x-seg-solar-filament-2048-1109.pt.part0001",
+      "bytes": 67108864,
+      "sha256": "ba13761cfb9b5c0fc5371a5b8303695df63d7568d6a06009e2c34d39bb7abbf2"
+    },
+    {
+      "file": "yolo26x-seg-solar-filament-2048-1109.pt.part0002",
+      "bytes": 8071557,
+      "sha256": "0c0fa5e911877ff264744ea9c485f6745f4cad8f8d0833531a67107341cca0a9"
+    }
+  ],
+  "metadata": {
+    "ref": "hdjojo/yolo26x-seg-solar-filament/pytorch/default/1",
+    "filename": "yolo26x-seg-solar-filament-2048-1109.pt",
+    "bytes": 142289285,
+    "sha256": "c5c02daec7b04b78481a22ade2780d55cf99755c0865a6e8e1dff22eda5d7390"
+  }
+}

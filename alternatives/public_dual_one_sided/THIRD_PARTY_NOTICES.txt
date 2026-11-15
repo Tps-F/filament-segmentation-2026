@@ -1,0 +1,18 @@
+Algorithm and public model attribution: HDJoJo on Kaggle.
+https://www.kaggle.com/code/hdjojo/solar-filament-segmentation
+https://www.kaggle.com/models/hdjojo/yolo26x-seg-solar-filament/PyTorch/default/1
+https://www.kaggle.com/models/hdjojo/yolov8x-seg-solar-filament/PyTorch/default/1
+
+Both exact model-version cards declare Apache2.0 for the uploaded weights and
+state that training used only the707 competition TRAIN images. These are the
+uploader's declarations; this package does not independently audit training.
+The exact current dual notebook's license and score are not asserted. The
+standard Apache2.0 license text is retained in LICENSES/PUBLIC_MODEL_APACHE2.txt.
+
+Ultralytics8.4.211 is distributed under AGPL3.0; its installed license is retained
+in LICENSES/ULTRALYTICS_AGPL3.txt. Model-card Apache declarations do not replace
+the upstream code's license. PyTorch, torchvision, NumPy, OpenCV, SciPy,
+pycocotools and other dependencies retain their respective upstream terms.
+Runtime metadata identifies exact dependency versions and source/library hashes.
+No new rights to competition images, annotations or third-party materials are
+granted. Actual public publication remains a separate reviewed action.

@@ -1,0 +1,172 @@
+{
+  "schema": "public_dual_one_sided_secondary_publication_v1",
+  "primary_method": "own S20 hybrid, submission 58287816, public 0.40",
+  "alternative": {
+    "submission_reference": 58361838,
+    "status": "COMPLETE",
+    "public_score": "0.40",
+    "grade_observed_utc": "2026-11-15T00:45:51.527679+00:00",
+    "candidate_sha256": "29911b4c87ae00a66bf0a21c2dee92e774078887d85bbac9ccbc86e3df5a984c",
+    "images": 180,
+    "instances": 1318,
+    "added_masks": 8,
+    "affected_one_sided_images": 7,
+    "prior_masks_unchanged": 1310,
+    "local_CV_claim": false
+  },
+  "source_package_manifest_sha256": "f847304f7bc0ee8fed5b7a86d685154b90819d23d96ce55697df7d8bcc958610",
+  "files": {
+    "LICENSES/PUBLIC_MODEL_APACHE2.txt": {
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "LICENSES/ULTRALYTICS_AGPL3.txt": {
+      "bytes": 34523,
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    "README.txt": {
+      "bytes": 2310,
+      "sha256": "07f063c316df1d0d11a27d76a3d5ccc5d449fb9290f0290c6a16fe6f6041fe68"
+    },
+    "THIRD_PARTY_NOTICES.txt": {
+      "bytes": 1217,
+      "sha256": "50515e43a0544d0b2fdb49bd4c2406856c2f2a29a648fbf4adb3a2bd8fe1116e"
+    },
+    "bundle_manifest.json": {
+      "bytes": 4784,
+      "sha256": "f847304f7bc0ee8fed5b7a86d685154b90819d23d96ce55697df7d8bcc958610"
+    },
+    "canonical_reference.json": {
+      "bytes": 22612,
+      "sha256": "59ef6fda12b9c462d60e9747775739c1649b4595198b2e29cdcb9a8564a44fd3"
+    },
+    "dual_yolo/__init__.py": {
+      "bytes": 75,
+      "sha256": "30e62de23460896b054b4e60b034c0acefb1dc71e264ccde406c77471107cbbc"
+    },
+    "dual_yolo/common.py": {
+      "bytes": 687,
+      "sha256": "783129e61a5562938ebdf5b65f86186091dfcf559b58a60aa96edf87b65b6631"
+    },
+    "dual_yolo/geometry.py": {
+      "bytes": 4071,
+      "sha256": "26751dc2b2993ad67f6cbda7559d179f390f8a2c610ac42d4f7722ffc2eed6b4"
+    },
+    "dual_yolo/lifecycle.py": {
+      "bytes": 4840,
+      "sha256": "ba256bce6ed8c01e9b05bd3e337cdebfa7fa05d98bf7fbc2ec01cb8f0a8c88a1"
+    },
+    "dual_yolo/metrics.py": {
+      "bytes": 1443,
+      "sha256": "f78e5b0a34c896588d62c259ba267046b6ee4429347d83a489fb2f50956b56a7"
+    },
+    "dual_yolo/operations.py": {
+      "bytes": 10738,
+      "sha256": "cd9839653cef93673e5a90d3fe66183d70395c1cb16c5e98759539775a0fb43a"
+    },
+    "dual_yolo/ownership.py": {
+      "bytes": 2188,
+      "sha256": "26e07600cc44eb1f95e606f92aa39e421e12b68c038f6e3bc114b2eabb045155"
+    },
+    "dual_yolo/pipeline.py": {
+      "bytes": 4511,
+      "sha256": "432e0f8f4f1da100bbba149ac575d2c1382e637cf2456b72bcd1dc9b16e36fb9"
+    },
+    "dual_yolo/runtime.py": {
+      "bytes": 9401,
+      "sha256": "8ed8b7d93a0fb8fc70cef0c34897d3e07d435b5b591126aa2ec30c0e61058a60"
+    },
+    "dual_yolo/submit_validation.py": {
+      "bytes": 1637,
+      "sha256": "1fdfeb3735af7095a70091bdc8df7ab336ce5c1b8135e73dc0ac71943d926851"
+    },
+    "dual_yolo/weight_archive.py": {
+      "bytes": 6022,
+      "sha256": "d3389b094411d0cdd0289f0c4e23d39fde25045165bd11acbe0558191567643f"
+    },
+    "dual_yolo/worker.py": {
+      "bytes": 2224,
+      "sha256": "8affc4cdd8764a4bb7d245f7cf536f6f2e19705dd50d85b8ebaa1e46f66c21cf"
+    },
+    "notebook_execute.py": {
+      "bytes": 1174,
+      "sha256": "14f196e2681eb38a929da100a54d43f4776adfea5c619156ee4becf8cef1db2f"
+    },
+    "recipe.json": {
+      "bytes": 1884,
+      "sha256": "1249c4a6f5f2b2953ee0a4c745ec8e4d91c0791b0ea342243081e8a1d7c1971c"
+    },
+    "reproduce.ipynb": {
+      "bytes": 570,
+      "sha256": "23b7d8fca77e6e372ff851ed5cda0b1182d9d40ebe971285cd83df8bcfb9b465"
+    },
+    "run.py": {
+      "bytes": 803,
+      "sha256": "fe62fcd13391502e668a1ebe343b1e56444fe2316efcb33cc6baf20fd9ba11cb"
+    },
+    "runtime_lock.json": {
+      "bytes": 4051945,
+      "sha256": "4746392ce50e93d173073233e3407206621cc425662cffa44e32bc763ddcb0a3"
+    },
+    "test_inputs.json": {
+      "bytes": 32961,
+      "sha256": "c6296b2b30deb760c03792b1e78ed45347cd52aaddcd72da871b0a174b4c8880"
+    },
+    "weights/yolo26x/archive.json": {
+      "bytes": 1006,
+      "sha256": "eb40fe69e3aeb4418e89fca73db445026dfa06abffedef324797ec9b587af99d"
+    },
+    "weights/yolo26x/yolo26x-seg-solar-filament-2048-1109.pt.part0000": {
+      "bytes": 67108864,
+      "sha256": "72c94543aca6d7b2611eab2bdd6d20a423688bddcea7c3ed0e564398441e354c"
+    },
+    "weights/yolo26x/yolo26x-seg-solar-filament-2048-1109.pt.part0001": {
+      "bytes": 67108864,
+      "sha256": "ba13761cfb9b5c0fc5371a5b8303695df63d7568d6a06009e2c34d39bb7abbf2"
+    },
+    "weights/yolo26x/yolo26x-seg-solar-filament-2048-1109.pt.part0002": {
+      "bytes": 8071557,
+      "sha256": "0c0fa5e911877ff264744ea9c485f6745f4cad8f8d0833531a67107341cca0a9"
+    },
+    "weights/yolov8x/archive.json": {
+      "bytes": 1007,
+      "sha256": "768fc39e6e2632b69c5f390c2f20d94254a78c3e3a6af21a7c1abf4a76f1a1f9"
+    },
+    "weights/yolov8x/yolov8x-seg-solar-filament-2048-1110.pt.part0000": {
+      "bytes": 67108864,
+      "sha256": "2df2602650aedefe3c916a0b8024ea2d9b3907922412e40b53a05e643d92782c"
+    },
+    "weights/yolov8x/yolov8x-seg-solar-filament-2048-1110.pt.part0001": {
+      "bytes": 67108864,
+      "sha256": "0233f25bbfff8eed81a5ee25ff0b7334f8248c365be40d2001305594ed0d80af"
+    },
+    "weights/yolov8x/yolov8x-seg-solar-filament-2048-1110.pt.part0002": {
+      "bytes": 10245604,
+      "sha256": "e7f81cdec117d1b4f106b51de71ff22dd79bf1b6631a726009a5d10c4921a8b1"
+    }
+  },
+  "requirements": {
+    "path": "public_dual_one_sided_requirements.txt",
+    "sha256": "5885b7015dbf04da28201c70f2b3274677ea2f3224efbdbae4ed77714d2e6e71",
+    "distribution_count": 105,
+    "fresh_installation_proved": false
+  },
+  "proof": {
+    "status": "PASS_full180_exact_local_clone",
+    "completed_pipeline_sha256": "4840945d866c23da9845944e32aa64f0675e8fa065cfd21e6f3f304d62fc3315",
+    "fresh_reproduction_receipt_sha256": "da9435f44d09d912f344ede98a8a9e9d0dc79216d9b01dbf1ae03248431e4ddf",
+    "independent_fresh_audit_sha256": "63cd421abd039089a9f3d231a1df278d87ccc902a439c0ce807312f55aa7e8f5",
+    "completed_independent_peer_sha256": "50f2d507efbbb4e353a83cb18b7044547f1cea2edad77af8afa129a09e7a7896",
+    "images": 180,
+    "instances": 1318,
+    "pixel_disjoint": true,
+    "exact_final_CSV": true,
+    "raw_confidence_byte_equality_claim": false,
+    "all_six_owned_pipeline_stages_waited_zero": true,
+    "detached_controller_raw_exit": null,
+    "fresh_installation_proved": false,
+    "interactive_Jupyter_claim": false,
+    "historical_Kaggle_runtime_claim": false
+  },
+  "qualification": "Exact package copy and metadata publication; no new inference, validation scoring, installation or submission."
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "public_dual_one_sided_local841211_v1",
+  "candidate_count": 1,
+  "source_notebook_sha256": "103b33f5f331b81c9e4cad1d3acbf09a137947d27f44ee2785f446106b47ce04",
+  "source_policy_sha256": "0c8dfe5c66976054ac4bd0b21c51e2f923622137d8c901331205c0f3987dedd7",
+  "backend_proof_addendum_sha256": "366dfb4c16f617b2168e71489cb1950157d1bf294de6c2822ee7996ad4b8de57",
+  "declared_backend": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "predict_half": false,
+    "predict_augment": false,
+    "torch_threads": 4,
+    "cv2_threads": 1,
+    "CUDA_VISIBLE_DEVICES": "0"
+  },
+  "proof_contract": "Final ordered native rows/masks/gapped IDs/CSV byte-exact; independently sealed and audited raw intermediates for each pass, without cross-pass equality or numeric tolerance.",
+  "models": {
+    "yolo26x": {
+      "ref": "hdjojo/yolo26x-seg-solar-filament/pytorch/default/1",
+      "filename": "yolo26x-seg-solar-filament-2048-1109.pt",
+      "bytes": 142289285,
+      "sha256": "c5c02daec7b04b78481a22ade2780d55cf99755c0865a6e8e1dff22eda5d7390",
+      "archive": "weights/yolo26x/archive.json"
+    },
+    "yolov8x": {
+      "ref": "hdjojo/yolov8x-seg-solar-filament/pytorch/default/1",
+      "filename": "yolov8x-seg-solar-filament-2048-1110.pt",
+      "bytes": 144463332,
+      "sha256": "ced0e12510abf8c53121ee1b7bf9900a015a18dadca36e40054b45198af9fab7",
+      "archive": "weights/yolov8x/archive.json"
+    }
+  },
+  "training_declaration": "Both uploaders declare707competitionTRAINonly; no independent audit or localCV claim.",
+  "runtime_qualification": "Exact existing local environment; not historicalKaggle or fresh-install proof."
+}

@@ -36,6 +36,12 @@ Fixed complete-hybrid comparisons on separately trained folds 1 and 2 gave PQ **
 
 An independent CPU audit verified all 540 probability caches, native mask geometry, exact candidate bytes, and process exits. Receipts are in `verification/`. The source and weight inventory is `bundle_preparation.json`. Historical records under `docs/` describe earlier versions and preserved failed checks; the current result above supersedes their status snapshots.
 
+## Tied public-model alternative
+
+A distinct, independently implemented [HDJoJo dual-YOLO alternative](alternatives/README.md) received **0.40**, submission **58361838**. Its sole algorithm change retains one model's detections when the other is absent: **8 additional masks on 7 images**, with all prior masks unchanged. A fresh local run regenerated both models on all **180 images** and matched the submitted CSV exactly. No local cross-validation claim is made for these public weights; the own S20 hybrid remains the primary method and report.
+
+The alternative includes [source and notebook](alternatives/public_dual_one_sided/), [both public weight archives](alternatives/public_dual_one_sided/weights/), [105 pinned dependency versions](alternatives/public_dual_one_sided_requirements.txt) and [qualified run requirements](alternatives/README.md#running-the-frozen-package). Its exact existing-runtime proof does not establish a fresh installation or cross-hardware reproduction.
+
 ## Scope and attribution
 
 Inference uses fixed precision, thresholds and geometry, and never fits on test predictions. The runner does not upload a submission. Competition images, labels, credentials and cached probability maps are excluded.
